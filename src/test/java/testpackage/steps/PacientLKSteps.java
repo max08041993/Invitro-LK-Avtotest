@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.support.FindBy;
 import testpackage.pages.PacientLKPage;
 
+import javax.xml.ws.WebEndpoint;
 import java.util.List;
 
 public class PacientLKSteps {
@@ -250,9 +251,15 @@ public class PacientLKSteps {
         page.StatusAll();//Выбрать Все и проверить отображение
     }
 
-    @When("Найти заказ LK000432080 и переимовать его в Автотест и Обратно")
-    public void SendLK000432080(){
-        //Найти заказ LK000432080 Нажать карандаш двойной клик на этом поле, переименовать его в Автотест и нажать галочку
+    @When("Найти заказ LK000432080 и переимовать его в Avtotest")
+    public void ChangeLK000432080(){
+        page.NameAvtotest();
+    }
+
+    @When("Перейти в заказ LK000432080 и проверить что заголовок не изменился")
+    public void SendAvtotest(){
+        page.SendAvtotest();
+        //Найти заказ LK000432080 Нажать карандаш двойной клик на этом поле, переименовать его в Avtotest и нажать галочку
         //Провалиться в него
         //Заказ от 18.06.2019 №LK000432080
         //Нажать Назад к списку
@@ -260,11 +267,26 @@ public class PacientLKSteps {
         //Проверить что название LK000432080
     }
 
+    @When("Найти заказ Avtotest и переимовать его в LK000432080")
+    public void ChangeAvtotest(){
+        page.NameLK000432080();
+        //
+        //
+        //
+        //
+    }
+
     @When("Оповещение о переходе на старый ЛК")
     public void OldLK(){
+        page.OldLK();
         //Нажать колокольчик и показать всё
         //Нажать на перейти в старую версию ЛК проверить отображение страницы старого ЛК
     }
 
+
+    @When("Проверить кнопки Отменить Распечатать в списке")
+    public void MoveToElementLK000432080(){
+        page.MoveToElementLK000432080();
+    }
 
 }
