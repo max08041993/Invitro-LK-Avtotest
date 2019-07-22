@@ -270,7 +270,7 @@ public class PacientLKPage extends PageObject {
     WebElement OpenZakaz;
 
     @FindBy(xpath = "//div[@class='analysis-table analysis-table--no-padding-left analysis-table--v-align-top']")
-    WebElement TableResult;
+    WebElement Table1Result;
 
     @FindBy(xpath = "(//button[@class='list-order__edit'])[1]")//Кнопка переименования первого заказа
     WebElement EditNameZakaz;
@@ -340,7 +340,7 @@ public class PacientLKPage extends PageObject {
     public void visibleTableResult(){
         help.Click_Method(OpenZakaz);
         help.getSlow();
-        help.Check_Visible_Element(TableResult);
+        help.Check_Visible_Element(Table1Result);
     }
 
     // Ввод неверного Логина пароля
@@ -409,14 +409,144 @@ public class PacientLKPage extends PageObject {
     }
 
 
+// --------------------  Полная проверка страницы Заказы поиск по ИНЗ и Артиклу -----------------------
+
+    @FindBy(xpath = "//button[@class='list-order__action list-order__action--download dwnlod']")
+    WebElement DonloadRez;
+
+    @FindBy(xpath = "//input[@class='search__input']")
+    WebElement InputINZAndNameTest;//Поле ввода ИНЗ и Артиклу
+
+    @FindBy(xpath = "//button[@class='search__btn']")
+    WebElement Search;//кнопка поиска по ИНЗ и Артиклу
+
+    @FindBy(xpath = "//h2[@class='list-order__title']")
+    WebElement ZakazOt21Fev;//Заголовок заказа по ИНЗ 904160861 "Заказ от 21 февраля 2019"
+
+    @FindBy(xpath = "//span[contains(text(),'Сбросить фильтр')]")
+    WebElement ButtonResetFilter;//Кнопка Сбросить фильтр
+
+    @FindBy(xpath = "(//div[@class='tip tip--text'][contains(text(),'1515')])[1]")
+    WebElement ElementArt1515First;
+
+    public void sendINZ904160861(){
+        help.Enter_Text(InputINZAndNameTest,"904160861");
+    }
+
+    public void sendSearch(){
+        help.Click_Method(Search);
+    }
+
+    public void visibleINZ904160861(){
+        help.Verify_Text(ZakazOt21Fev,"Заказ от 21 февраля 2019");
+    }
+
+    public void sendResetFiltr(){
+        help.Click_Method(ButtonResetFilter);
+    }
+
+    public void sendArt1515(){
+        help.Enter_Text(InputINZAndNameTest,"1515");
+    }
+
+    public void visibleArt1515(){
+        help.Verify_Text(ElementArt1515First,"1515");
+    }
+
+// --------------------  Полная проверка страницы Заказы Проверка работы фильтров-----------------------
+
+    @FindBy (xpath = "(//div[@class='ss__select'])[1]")
+    WebElement PeriodFiltr;//Выпадающее меню Показать за период:
+
+    @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Полгода')]")
+    WebElement PeriodOne;//Выбор периода Полгода
+
+    @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Квартал')]")
+    WebElement PeriodSecond;//Выбор периода Квартал
+
+    @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Месяц')]")
+    WebElement PeriodThird;//Выбор периода Месяц
+
+    @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Все')]")
+    WebElement PeriodAll;//Выбор периода Все
+
+    @FindBy(xpath = "//div[@class='list-order']")
+    WebElement TableResultFiltr;//Результат отображения по периоду и Статусу заказа
+
+    //--
+
+    @FindBy (xpath = "(//div[@class='ss__select'])[2]")
+    WebElement StatusFiltr;//Выпадающее меню Статус заказа:
+
+    @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Черновик заказа')]")
+    WebElement StatusdOne;//Выбор Статус заказа: Черновик заказа
+
+    @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Выполненный заказ (с результатами)')]")
+    WebElement StatusSecond;//Выбор Статус заказа: Выполненный заказ (с результатами)
+
+    @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Сформированный заказ')]")
+    WebElement StatusThird;//Выбор Статус заказа: Сформированный заказ
+
+    @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Результаты без заказа')]")
+    WebElement StatusFourth;//Выбор Статус заказа: Результаты без заказа
+
+    @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Все')]")
+    WebElement StatusAll;//Выбор Статус заказа: Все
 
 
+    public void PeriodOne(){
+        help.Click_Method(PeriodFiltr);
+        help.Click_Method(PeriodOne);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
+    public void PeriodSecond(){
+        help.Click_Method(PeriodFiltr);
+        help.Click_Method(PeriodSecond);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
+    public void PeriodThird(){
+        help.Click_Method(PeriodFiltr);
+        help.Click_Method(PeriodThird);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
+    public void PeriodAll(){
+        help.Click_Method(PeriodFiltr);
+        help.Click_Method(PeriodAll);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
+    public void StatusdOne(){
+        help.Click_Method(StatusFiltr);
+        help.Click_Method(StatusdOne);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
+    public void StatusSecond(){
+        help.Click_Method(StatusFiltr);
+        help.Click_Method(StatusSecond);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
+    public void StatusThird(){
+        help.Click_Method(StatusFiltr);
+        help.Click_Method(StatusThird);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
+
+    public void StatusFourth(){
+        help.Click_Method(StatusFiltr);
+        help.Click_Method(StatusFourth);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
+
+    public void StatusAll(){
+        help.Click_Method(StatusFiltr);
+        help.Click_Method(StatusAll);
+        help.Check_Visible_Element(TableResultFiltr);
+    }
 
 
 
