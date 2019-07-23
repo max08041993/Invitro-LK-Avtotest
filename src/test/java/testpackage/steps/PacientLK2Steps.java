@@ -36,66 +36,65 @@ public class PacientLK2Steps {
         page.enterAddSurnameField();
     }
 
-//    @When("^Ввести Имя пациента pop-up ЛК$" )
-//    public void enterAddNameField() {
-//        page.enterAddNameField();
-//    }
-//
-//    @When("^Ввести Отчество пациента pop-up ЛК$" )
-//    public void enterAddSecondnameField() {
-//        page.enterAddSecondnameField();
-//    }
-//
-//    @When("^Ввести Дату рождения пациента pop-up ЛК$" )
-//    public void enterAddBirthdayField() {
-//        page.enterAddBirthdayField();
-//    }
-//
-//    @When("^Ввести Телефон пациента pop-up ЛК$" )
-//    public void enterAddPhoneField() {
-//        page.enterAddPhoneField();
-//    }
-//
-//    @When("^Ввести Email пациента pop-up ЛК$" )
-//    public void enterNewPacientEmailTField() {
-//        page.enterNewPacientEmailTField();
-//    }
-//
-//    @When("^Кликнуть по кнопке Сохранить pop-up ЛК$" )
-//    public void сlickNewPacientSaveButton() {
-//        page.clickNewPacientSaveButton();
-//    }
-//
-//    // шаги сценария оформления заказа
-//
-//    @When("Проверка ввода логина в поле Авторизации" )
-//    public void enterLoginField() {
-//        page.enterLoginField();
-//    }
-//
-//    @When("Проверка ввода пароля в поле Авторизации" )
-//    public void enterPasswordField() { page.enterPasswordField(); }
-//
-//    @When("Кликнуть по кнопке Новый заказ" )
-//    public void сlickNewOrderButton() {
-//        page.clickNewOrderButton();
-//    }
-//
-//    @When("Добавить в корзину Анализ 1" )
-//    public void сlickAddFirstAnalysis() {
-//        page.clickAddFirstAnalysis();
-//    }
-//
-//    @When("Добавить в корзину Анализ 2" )
-//    public void сlickAddSecondClinicalBloodTest() {
-//        page.clickAddSecondClinicalBloodTest();
-//    }
-//
-//    @When("Кликнуть развернуть раздел Гематологические исследования" )
-//    public void сlickNHematologicalStudies() {
-//        page.clickNHematologicalStudies();
-//    }
-//
+    @When("Переход в Программа Инвитро здоровый плюс" )
+    public void enterAddNameField() {
+        page.enterAddNameField();
+    }
+
+    @When("Проверка отображения статуса участия основного пациента" )
+    public void enterAddSecondnameField() {
+        page.enterAddSecondnameField();
+    }
+
+    @When("Проверка 1отображения статуса участия медкарты пациента Тестовый Бонус7" )
+    public void enterAddBirthdayField() {
+        page.enterAddBirthdayField();
+    }
+
+    @When("Проверка 2отображения статуса участия медкарты пациента Тестовый Бонус5" )
+    public void enterAddPhoneField() {
+        page.enterAddPhoneField();
+    }
+    @When("Проверка 3отображения статуса участия медкарты пациента Тестовый Бонус10" )
+    public void сlickNHematologicalStudies() {
+        page.clickNHematologicalStudies();
+    }
+
+    @When("Проверка 4отображения статуса участия медкарты пациента Тестовый Бонус10п" )
+    public void enterNewPacientEmailTField() {
+        page.enterNewPacientEmailTField();
+    }
+
+    @When("Проверка 5отображения статуса участия медкарты пациента Тестовый Бонус10с" )
+    public void сlickNewPacientSaveButton() {
+        page.clickNewPacientSaveButton();
+    }
+
+
+    @When("Проверка 1отображения статуса участия медкарты пациента Тестовый Дисконт5" )
+    public void enterLoginField() {
+        page.enterLoginField();
+    }
+
+    @When("Проверка 2отображения статуса участия медкарты пациента Тестовый Дисконт10" )
+    public void enterPasswordField() { page.enterPasswordField(); }
+
+    @When("Проверка 3отображения статуса участия медкарты пациента Тестовый Дисконт13" )
+    public void сlickNewOrderButton() {
+        page.clickNewOrderButton();
+    }
+
+    @When("Проверка 4отображения статуса участия медкарты пациента Тестовый Дисконт20" )
+    public void сlickAddFirstAnalysis() {
+        page.clickAddFirstAnalysis();
+    }
+
+    @When("Проверка 5отображения статуса участия медкарты пациента Тестовый Дисконт30" )
+    public void сlickAddSecondClinicalBloodTest() {
+        page.clickAddSecondClinicalBloodTest();
+    }
+
+
 //    @When("Добавить в корзину Анализ 3" )
 //    public void сlickAddThirdClinicalBloodTest() {
 //        page.clickAddThirdClinicalBloodTest();

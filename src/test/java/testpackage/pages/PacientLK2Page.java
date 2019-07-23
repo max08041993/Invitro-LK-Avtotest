@@ -7,13 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import testpackage.help.Help_Methods;
 import java.util.ArrayList;
+import testpackage.pages.PacientLKPage;
 
 
 public class PacientLK2Page extends PageObject {
 
     private static final Help_Methods help = Help_Methods.getInstance();
     public ArrayList<String> TheBoardValues = new ArrayList();
-
+    PacientLKPage page1 = new PacientLKPage();
     private By AppCookie = By.xpath("//button[contains(@class,'attention-close-button')]");
 
     //22.07.2019
@@ -133,6 +134,126 @@ public class PacientLK2Page extends PageObject {
         help.Click_Method(DeleteNewMedkart);
     }
 
+
+    //-------------------Программа Инвитро здоровый плюс----------------------
+
+    @FindBy(xpath = "//a[contains(text(),'ПРОГРАММА «ИНВИТРО ЗДОРОВЫЙ ПЛЮС»')]")
+    WebElement ProgrammaInvitroZdorPlus;//Ссылка на ПРОГРАММА «ИНВИТРО ЗДОРОВЫЙ ПЛЮС»
+
+    @FindBy(xpath = "//div[contains(text(),'Вы не являетесь участником программы \"ИНВИТРО Здоровый плюс\"')]")
+    WebElement NotPL;//сообщение у основного пациента по ПЛ
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус5')]")//Медкарта Тестовый Бонус5
+    WebElement BB5;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус7')]")//Медкарта Тестовый Бонус5
+    WebElement BB7;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Бонус10']")//Медкарта Тестовый Бонус10
+    WebElement BB10;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Бонус10п']")//Медкарта Тестовый Бонус10п
+    WebElement NewBB10p;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Бонус10с']")//Медкарта Тестовый Бонус10с
+    WebElement New2BB10c;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт5']")//Медкарта Тестовый Дисконт5
+    WebElement DK5;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт10']")//Медкарта Тестовый Дисконт10
+    WebElement DK10;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт13']")//Медкарта Тестовый Дисконт13
+    WebElement DK13;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт20']")//Медкарта Тестовый Дисконт20
+    WebElement DK20;
+
+    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт30']")//Медкарта Тестовый Дисконт30
+    WebElement DK30;
+
+    @FindBy(xpath = "//div[@class='lk-info-bar__title lk-info-bar__title--big']")//Информация о номинале ДК и ББ
+    WebElement NominalDK;
+
+    @FindBy(xpath = "//img[@class='discount_card_small']")//Изображение ДК
+    WebElement ImageDK;
+
+
+    public void enterAddNameField(){
+        help.Click_Method(ProgrammaInvitroZdorPlus);
+    }
+
+    public void enterAddSecondnameField(){
+        help.Check_Enabled_Element(NotPL);
+    }
+
+
+
+    public void enterAddPhoneField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус5
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(BB5);
+        help.Check_Enabled_Element(NominalDK);
+    }
+
+    public void enterAddBirthdayField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус7
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(BB7);
+        help.Check_Enabled_Element(NominalDK);
+    }
+
+    public void clickNHematologicalStudies(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(BB10);
+        help.Check_Enabled_Element(NominalDK);
+    }
+
+    public void enterNewPacientEmailTField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10п
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(NewBB10p);
+        help.Check_Enabled_Element(NominalDK);
+    }
+
+    public void clickNewPacientSaveButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10с
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(New2BB10c);
+        help.Check_Enabled_Element(NominalDK);
+    }
+
+    public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(DK5);
+        help.Check_Enabled_Element(NominalDK);
+        help.Check_Enabled_Element(ImageDK);
+    }
+
+    public void enterPasswordField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт10
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(DK10);
+        help.Check_Enabled_Element(NominalDK);
+        help.Check_Enabled_Element(ImageDK);
+    }
+
+    public void clickNewOrderButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт13
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(DK13);
+        help.Check_Enabled_Element(NotPL);
+        help.Check_Enabled_Element(ImageDK);
+    }
+
+    public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(DK20);
+        help.Check_Enabled_Element(NominalDK);
+        help.Check_Enabled_Element(ImageDK);
+    }
+
+    public void clickAddSecondClinicalBloodTest(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт30
+        help.Click_Method(page1.ViborMedKart);
+        help.Click_Method(DK30);
+        help.Check_Enabled_Element(NominalDK);
+        help.Check_Enabled_Element(ImageDK);
+    }
 
 //
 //    // Процедура добавления новой медицинской карты пациента
