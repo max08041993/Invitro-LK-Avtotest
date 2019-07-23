@@ -1,19 +1,12 @@
 package testpackage.pages;
 
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
-import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.yecht.Data;
 import testpackage.help.Help_Methods;
-
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class PacientLKPage extends PageObject {
@@ -275,25 +268,6 @@ public class PacientLKPage extends PageObject {
 
     @FindBy(xpath = "//div[@class='analysis-table analysis-table--no-padding-left analysis-table--v-align-top']")
     WebElement Table1Result;
-
-    @FindBy(xpath = "(//button[@class='list-order__edit'])[1]")//Кнопка переименования первого заказа
-    WebElement EditNameZakaz;
-
-    @FindBy(xpath = "(//input[@class='list-order__input'])[1]")//Поле ввода имени первого заказа
-    WebElement InputNameZakaz;
-
-    @FindBy(xpath = "(//button[@class='list-order__send sender_alias'])[1]")//Кнопка сохранения имени первго заказа
-    WebElement SaveNameZakaz;
-
-    @FindBy(xpath = "(//h2[@class='list-order__title'])[1]")//Имя первого заказа
-    WebElement NameZakaz;
-
-    @FindBy(xpath = "(//div[@class='list-order__wrap'])[1]")//Переход к телу переименованого первого заказа
-    WebElement TeloFirstZakaz;
-
-
-
-
 
 
     // Авторизация

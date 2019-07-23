@@ -1,7 +1,6 @@
 package testpackage.steps;
 
 
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import testpackage.pages.PacientLK2Page;
 
@@ -9,36 +8,34 @@ public class PacientLK2Steps {
     PacientLK2Page page;
 
 
+    @When("Переход в Медкарты" )
+    public void сlickMedCart() {
+        page.MedKarty();
+    }
 
+    @When("Прверка успешного перехода и отображения Медкарт" )
+    public void сlickAddNewMedCartPacient() {
+        page.clickAddNewMedCartPacient();
+    }
 
-//    @When("Кликнуть выбрать мед карту" )
-//    public void сlickChooseMedCart() {
-//        page.clickChooseMedCart();
-//    }
-//
-//    @When("Кликнуть добавить новую мед карту" )
-//    public void сlickAddNewMedCartPacient() {
-//        page.clickAddNewMedCartPacient();
-//    }
-//
-//    @When("^Проверить отображение кнопки закрыть pop-up ЛК$" )
-//    public void visibleClosePopUpNewPacient() {
-//        page.visibleClosePopUpNewPacient();
-//    }
-//
-//    @When("^Кликнуть радиобаттон Мужской пол pop-up ЛК$" )
-//    public void сlickChooseMalePacient() { page.clickChooseMalePacient(); }
-//
-//    @When("^Кликнуть радиобаттон Женксий пол pop-up ЛК$" )
+    @When("Проверка отображения и функционала Автоматического добавления всех результатов" )
+    public void visibleClosePopUpNewPacient() {
+        page.visibleClosePopUpNewPacient();
+    }
+
+    @When("Проверка добавления новой Медкарты" )
+    public void сlickChooseMalePacient() { page.clickChooseMalePacient(); }
+
+//    @When("Проверка добавления результатов по ИНЗ в новой медкарте" )
 //    public void сlickChooseFemalePacient() {
 //        page.clickChooseFemalePacient();
 //    }
-//
-//    @When("^Ввести Фамилию пациента pop-up ЛК$" )
-//    public void enterAddSurnameField() {
-//        page.enterAddSurnameField();
-//    }
-//
+
+    @When("Удаление новой медкарты" )
+    public void enterAddSurnameField() {
+        page.enterAddSurnameField();
+    }
+
 //    @When("^Ввести Имя пациента pop-up ЛК$" )
 //    public void enterAddNameField() {
 //        page.enterAddNameField();
