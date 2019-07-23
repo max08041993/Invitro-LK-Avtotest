@@ -238,7 +238,6 @@ public class PacientLK2Page extends PageObject {
         help.Click_Method(page1.ViborMedKart);
         help.Click_Method(DK13);
         help.Check_Enabled_Element(NotPL);
-        help.Check_Enabled_Element(ImageDK);
     }
 
     public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
