@@ -95,26 +95,28 @@ public class PacientLK2Steps {
     }
 
 
-//    @When("Добавить в корзину Анализ 3" )
-//    public void сlickAddThirdClinicalBloodTest() {
-//        page.clickAddThirdClinicalBloodTest();
-//    }
-//
-//    @When("Добавить в корзину Анализ 4" )
-//    public void сlickсlickAddFourthClinicalBloodTest() {
-//        page.clickAddFourthClinicalBloodTest();
-//    }
-//
-//    @When("Осуществить переход на страницу Корзины" )
-//    public void сlickGoToBasketButton() {
-//        page.clickGoToBasketButton();
-//    }
-//
-//    @When("Проверить текст Корзина" )
-//    public void verifyBasketText() {
-//        page.verifyBasketText();
-//    }
-//
+    //--------------------Проверка Настройки---------------
+
+    @When("Переход в Настройки" )
+    public void сlickAddThirdClinicalBloodTest() {
+        page.clickAddThirdClinicalBloodTest();
+    }
+
+    @When("Проверка Личных данных пациента" )
+    public void сlickсlickAddFourthClinicalBloodTest() {
+        page.clickAddFourthClinicalBloodTest();
+    }
+
+    @When("Переход в Безопасность и смена пароля" )
+    public void сlickGoToBasketButton() {
+        page.clickGoToBasketButton();
+    }
+
+    @When("Переход в Историю посещений и проверка таблицы" )
+    public void verifyBasketText() {
+        page.verifyBasketText();
+    }
+
 //    // Шапка Таблицы Корзина
 //
 //    @When("^Проверка блока 'Заказанные анализы' в корзине$" )
