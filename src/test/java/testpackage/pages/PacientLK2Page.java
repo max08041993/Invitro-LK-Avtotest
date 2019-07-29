@@ -4,6 +4,7 @@ import net.thucydides.core.pages.PageObject;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import testpackage.help.Help_Methods;
 import java.util.ArrayList;
@@ -336,6 +337,116 @@ public class PacientLK2Page extends PageObject {
     public void verifyBasketText(){
         help.Click_Method(ElementHistory);
         help.Check_Enabled_Element(TableHistory);
+    }
+
+
+    //-------------------------------Проверка Динамики-------------
+
+    @FindBy(xpath = "//a[contains(text(),'ДИНАМИКА')]")//Вкладка Динамика
+    WebElement ElementDinamika;
+
+    @FindBy(xpath = "//div[@class='box-empty__msg']")//Сообщение У вас еще нет результатов или они еще не готовы в Динамике
+    WebElement NotRezult;
+
+    @FindBy(xpath = "//h1")//Заголовок Динамика результатов
+    WebElement ZagolovokDinam;
+
+    @FindBy(xpath = "//input[@id='dynamic-from']")//Поле ввода периода С 2018/10/01
+    WebElement InputOnePeriod;
+
+    @FindBy(xpath = "//input[@id='dynamic-to']")//Поле ввода периода ДО 2019/07/16
+    WebElement InputToPeriod;
+
+    @FindBy(xpath = "//p[@class='CaptionCont SelectBox search']")//Попап выбора исследования
+    WebElement ViborIssledov;
+
+    @FindBy(xpath = "//button[@class='select-all']")//Чекбокс Выбрать Все
+    WebElement ViborIssledovAll;
+
+    @FindBy(xpath = "//div[@id='dynamic-list']//label[contains(text(),'Общий белок')]")//"//ul[@class='options']")//Чекбокс Общий белок
+    WebElement ViborIssledovObsh;
+
+    @FindBy(xpath = "//p[@class='btnOk']")//Кнопка ОК при выборе Исследования
+    WebElement BootnOkDinam;
+
+    @FindBy(xpath = "//a[@class='list-order__action']")//Скачать
+    WebElement SaveDinam;
+
+    @FindBy(xpath = "//a[@class='list-order__action popupBtn']")//Отправить на email
+    WebElement SendDinamEmail;
+
+    @FindBy(xpath = "//input[@id='form_email_70']")//Поле ввода Email
+    WebElement InputEmailDinam;
+
+    @FindBy(xpath = "//button[@class='btn ripple js-button-submit']")//Кнопка Отправить на Email
+    WebElement ButtonSendDinam;
+
+    @FindBy(xpath = "//button[@class='btn btn-popup-close']")//Кнопка продолжиьть после отправки Емаил
+    WebElement ButtonProdolDinam;
+
+    @FindBy(xpath = "//div[@class='h3']")// Текст Спасибо! Ваш ответ принят.
+    WebElement MessagePosEmail;
+
+    @FindBy(xpath = "//td[contains(text(),'Общий белок')]")//Элемент Общий белок в таблице динамики
+    WebElement TablElementObsh;   /////------------------При клике Можно применить для перехода к диаграме Общего белка
+
+    @FindBy(xpath = "//canvas[@class='flot-overlay']")//Проверить что Строится график при переходе на конкретное исследование
+    WebElement GrafikObshBel;
+
+    @FindBy(xpath = "//div[@id='detail-table']")//Таблица Деталей Общего белка
+    WebElement TableDetalObshZak;
+
+
+    public void checkOrderedAnalyzesInBasketBlock(){
+        help.Click_Method(ElementDinamika);
+        help.Check_Enabled_Element(NotRezult);
+        help.Check_Enabled_Element(ZagolovokDinam);
+    }
+
+    public void verifyTotalText(){
+        help.Enter_Text(InputOnePeriod,"2018/10/01");
+        help.Enter_Text(InputToPeriod,"2019/07/16");
+        help.Click_Method(ViborIssledov);
+        help.Click_Method(ViborIssledovObsh);
+        help.Click_Method(BootnOkDinam);
+        help.Check_Enabled_Element(TablElementObsh);
+        help.Click_Method(ViborIssledov);
+        help.Click_Method(ViborIssledovObsh);
+        help.Click_Method(BootnOkDinam);
+    }
+
+    public void verify2TotalText(){
+        help.Click_Method(ViborIssledov);
+        help.Click_Method(ViborIssledovAll);
+        help.Click_Method(BootnOkDinam);
+        help.Check_Enabled_Element(TablElementObsh);
+        help.Click_Method(ViborIssledovObsh);
+        help.Click_Method(BootnOkDinam);
+    }
+
+    public void clickChoosePacientOrderPage(){
+        help.Click_Method(SaveDinam);
+    }
+
+    public void clickCheckoutOrderButton(){
+        help.Click_Method(SendDinamEmail);
+        help.Enter_Text(InputEmailDinam,"mkozlov@invitro.ru");
+        help.Click_Method(ButtonSendDinam);
+        help.Verify_Text(MessagePosEmail,"Спасибо! Ваш ответ принят.");
+        help.Click_Method(ButtonProdolDinam);
+    }
+
+    public void verifyCheckoutOrderText(){
+        help.Click_Method(ViborIssledov);
+        help.Click_Method(ViborIssledovObsh);
+        help.Click_Method(BootnOkDinam);
+        help.Check_Enabled_Element(TablElementObsh);
+    }
+
+    public void verifyOrderListText(){
+        help.Click_Method(TablElementObsh);
+        help.Check_Enabled_Element(GrafikObshBel);
+        help.Check_Enabled_Element(TableDetalObshZak);
     }
 
 }
