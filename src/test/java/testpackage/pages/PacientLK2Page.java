@@ -432,7 +432,7 @@ public class PacientLK2Page extends PageObject {
         help.Click_Method(SendDinamEmail);
         help.Enter_Text(InputEmailDinam,"mkozlov@invitro.ru");
         help.Click_Method(ButtonSendDinam);
-        help.Verify_Text(MessagePosEmail,"Спасибо! Ваш ответ принят.");
+        help.Verify_Text(MessagePosEmail,"Спасибо! Письмо отправлено.");
         help.Click_Method(ButtonProdolDinam);
     }
 
