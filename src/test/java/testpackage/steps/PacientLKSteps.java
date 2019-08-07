@@ -111,12 +111,17 @@ public class PacientLKSteps {
         page.clickButtonLogin();
     }
 
-    @When("Ввести в поле логина email" )
+    @When("^Ввести логин (.*) и пароль (.*) для входа$")
+    public void enterLoginPassword (String login, String password){
+        page.sendLogandPass(login, password);
+    }
+
+    @When("Ввести в поле логина email" )// для лояльности актуально
     public void enterLoginFieldAuthorization() {
         page.enterLoginFieldAuthorization("inv.loyal.1@gmail.com");
     }
 
-    @When("Ввести пароль в поле Авторизации" )
+    @When("Ввести пароль в поле Авторизации" )//Для лояльности актуально
     public void enterPasswordFieldAuthorization() {
         page.enterPasswordFieldAuthorization("QazWsxEdc");
     }

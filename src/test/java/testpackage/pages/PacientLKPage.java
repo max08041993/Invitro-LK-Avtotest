@@ -1,6 +1,8 @@
 package testpackage.pages;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,84 +21,84 @@ public class PacientLKPage extends PageObject {
     //19.06.2019
 
     @FindBy(xpath = "//a[@class='btn btn--narrow btn--empty city__change-btn']")//Выбрать другой
-            WebElement ChengeOtherCity;
+            WebElementFacade ChengeOtherCity;
 
     @FindBy (xpath = "//button[@class='attention-close-button btn-icon btn-icon--fill']")
-    WebElement Prinyat;
+    WebElementFacade Prinyat;
 
     @FindBy (xpath = "//button[@class='btn btn--narrow city__confirm-btn']") //Да верно
-            WebElement ChangeYesOk;
+            WebElementFacade ChangeYesOk;
 
     @FindBy (xpath = "//div[@class='change-city-wrapper__left']//a[@class='change-city-block__item bold'][contains(text(),'Москва')]") //надпись крупные города Москва
-            WebElement BigCityMoscow;
+            WebElementFacade BigCityMoscow;
 
     private By Moscow = By.xpath("//span[@class='city__name city__btn city__name--label']");
 
     @FindBy (xpath = "//button[@class='header-nav__get-result popupBtn']")
-    WebElement Resultat;
+    WebElementFacade Resultat;
 
     @FindBy (xpath = "//div[@id='popupResult']")// Поле ввода
-    WebElement PopapResult;
+    WebElementFacade PopapResult;
 
     @FindBy (xpath = "//input[@id='inz']")// Поле ввода
-    WebElement InputINZ;
+    WebElementFacade InputINZ;
 
     @FindBy (xpath = "//input[@id='born']")// Поле ввода
-    WebElement Born;
+    WebElementFacade Born;
 
     @FindBy (xpath = "//input[@id='surname']")// Поле ввода
-    WebElement Surename;
+    WebElementFacade Surename;
 
     @FindBy (xpath = "//button[@id='getAnalisisBtn']")
-    WebElement FindSubmit;
+    WebElementFacade FindSubmit;
 
     @FindBy (xpath = "//span[@class='radio__text'][contains(text(),'Скачать файл')]")
-    WebElement RadioDownload;
+    WebElementFacade RadioDownload;
 
     @FindBy(xpath = "//span[@class='radio__text'][contains(text(),'Отправить по e-mail')]")
-    WebElement RadioEmailGet;
+    WebElementFacade RadioEmailGet;
 
     @FindBy(xpath = "//p[@id='resultQuant']")
-    WebElement PodskazkaResult;
+    WebElementFacade PodskazkaResult;
 
     @FindBy (xpath = "//div[@id='AnalysisResult']/span[@class='btn__side-link js-button-reset']")
-    WebElement PovtorPoisk;
+    WebElementFacade PovtorPoisk;
 
     @FindBy(xpath = "//button[@id='downloadAnalysisBtn']")
-    WebElement ButtonFind;
+    WebElementFacade ButtonFind;
 
     @FindBy (xpath = "//button[@title='Close (Esc)']")
-    WebElement Close;
+    WebElementFacade Close;
 
     @FindBy (xpath = "//input[@id='emailSend']")
-    WebElement InputEmail;
+    WebElementFacade InputEmail;
 
     @FindBy (xpath = "//button[@id='getEmailAnalysisBtn']")
-    WebElement ButtonSend;
+    WebElementFacade ButtonSend;
 
     @FindBy (xpath = "(//div[@class='attention__content'])[1]")
-    WebElement FallPodskazka;
+    WebElementFacade FallPodskazka;
 
     @FindBy (xpath = "//button[@id='header_button_login']")
-    WebElement ButtonLogin;
+    WebElementFacade ButtonLogin;
 
     @FindBy (xpath = "//a[@class='autorisation__link-forgot link'][contains(text(),'Забыли')]")//Забыли пароль
-    WebElement ZabilPassword;
+    WebElementFacade ZabilPassword;
 
     @FindBy(xpath = "//input[@id='loginForgot']")
-    WebElement InputEmailOrTel;
+    WebElementFacade InputEmailOrTel;
 
     @FindBy(xpath = "//input[@id='passwordForgotEmail']")//Поле ввода нового пароля
-    WebElement NewPassword;
+    WebElementFacade NewPassword;
 
     @FindBy(xpath = "//input[@id='repareLogin']")
-    WebElement ButtonVostanovleniyaPasword;
+    WebElementFacade ButtonVostanovleniyaPasword;
 
     @FindBy(xpath = "//div[@class='fields']")
-    WebElement MessagePasword;
+    WebElementFacade MessagePasword;
 
     @FindBy(xpath = "//input[@name='Forgot']")
-    WebElement ButtonVostanovPasword;
+    WebElementFacade ButtonVostanovPasword;
 
     //------------------------------------------------------------------------------------------
 
@@ -225,52 +227,60 @@ public class PacientLKPage extends PageObject {
 
     // Локаторы ЛК
     @FindBy (xpath = "//input[@id='login']")// Поле ввода Логина
-    WebElement LoginFieldAuthorization;
+    WebElementFacade LoginFieldAuthorization;
 
     @FindBy (xpath = "//input[@id='password']")// Поле ввода Пароля
-    WebElement PasswordFieldAuthorization;
+    WebElementFacade PasswordFieldAuthorization;
 
     @FindBy(xpath = "//input[@type='submit'][@name='Login']")
-    WebElement ButtonInput;
+    WebElementFacade ButtonInput;
 
     @FindBy(xpath = "//div[@class='header-title']")
-    WebElement TextLK;
+    WebElementFacade TextLK;
 
     @FindBy(xpath = "//a[@class='header-nav__link header-nav__link--active']")
-    WebElement ZakaziAktiv;
+    WebElementFacade ZakaziAktiv;
 
     @FindBy(xpath = "//button[@class='select-drop__toggle']")
-    WebElement ViborMedKart;
+    WebElementFacade ViborMedKart;
 
     @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус7')]")
-    WebElement TestovyBonus7;
+    WebElementFacade TestovyBonus7;
 
     @FindBy(xpath = "//div[@class='list-order__item list-order__item--on-hover to-detail_main']//a[contains(text(),'ИНЗ 904160861')]")
-    WebElement INZ904160861;
+    WebElementFacade INZ904160861;
 
     @FindBy(xpath = "//a[@class='list-order__action ddownload']")
-    WebElement DownloadLK;
+    WebElementFacade DownloadLK;
 
     @FindBy(xpath = "//a[@class='list-order__action popupBtn sender']")
-    WebElement FindOnEmailLK;
+    WebElementFacade FindOnEmailLK;
 
     @FindBy(xpath = "//input[@id='email']")
-    WebElement InputEmailLK;
+    WebElementFacade InputEmailLK;
 
     @FindBy(xpath = "//button[@class='btn ripple'][contains(text(),'Отправить')]")
-    WebElement SendOtpravitLK;
+    WebElementFacade SendOtpravitLK;
 
     @FindBy(xpath = "//div[@class='conteiner inner']")
-    WebElement ZakazyAktiv;
+    WebElementFacade ZakazyAktiv;
 
     @FindBy(xpath = "//div[@class='list-order__item list-order__item--on-result showDetailInzInfo showDetailInzInfoClicker doneOrder']")
-    WebElement OpenZakaz;
+    WebElementFacade OpenZakaz;
 
     @FindBy(xpath = "//div[@class='analysis-table analysis-table--no-padding-left analysis-table--v-align-top']")
-    WebElement Table1Result;
+    WebElementFacade Table1Result;
 
 
     // Авторизация
+
+    public void sendLogandPass(String login, String password) {
+        help.Click_Method(LoginFieldAuthorization);
+        LoginFieldAuthorization.type(login);
+        help.Click_Method(LoginFieldAuthorization);
+        PasswordFieldAuthorization.type(password);
+        help.Click_Method(ButtonInput);
+    }
 
     public void enterLoginFieldAuthorization(String Login) { // Ввод Имени inv.loyal.1@gmail.com
         help.Click_Method(LoginFieldAuthorization);
@@ -324,7 +334,7 @@ public class PacientLKPage extends PageObject {
     // Ввод неверного Логина пароля
 
     @FindBy(xpath = "(//span[@class='attention__acc show_error'])[1]")
-    WebElement ErrorLogPass;
+    WebElementFacade ErrorLogPass;
 
     public void enterErrorLoginFieldAuthorization(String EmailFall, String PassFall) { // Ввод не корректного Email
         help.Click_Method(LoginFieldAuthorization);
@@ -390,22 +400,22 @@ public class PacientLKPage extends PageObject {
 // --------------------  Полная проверка страницы Заказы поиск по ИНЗ и Артиклу -----------------------
 
     @FindBy(xpath = "//button[@class='list-order__action list-order__action--download dwnlod']")
-    WebElement DonloadRez;
+    WebElementFacade DonloadRez;
 
     @FindBy(xpath = "//input[@class='search__input']")
-    WebElement InputINZAndNameTest;//Поле ввода ИНЗ и Артиклу
+    WebElementFacade InputINZAndNameTest;//Поле ввода ИНЗ и Артиклу
 
     @FindBy(xpath = "//button[@class='search__btn']")
-    WebElement Search;//кнопка поиска по ИНЗ и Артиклу
+    WebElementFacade Search;//кнопка поиска по ИНЗ и Артиклу
 
     @FindBy(xpath = "//h2[@class='list-order__title']")
-    WebElement ZakazOt21Fev;//Заголовок заказа по ИНЗ 904160861 "Заказ от 21 февраля 2019"
+    WebElementFacade ZakazOt21Fev;//Заголовок заказа по ИНЗ 904160861 "Заказ от 21 февраля 2019"
 
     @FindBy(xpath = "//span[contains(text(),'Сбросить фильтр')]")
-    WebElement ButtonResetFilter;//Кнопка Сбросить фильтр
+    WebElementFacade ButtonResetFilter;//Кнопка Сбросить фильтр
 
     @FindBy(xpath = "(//div[@class='tip tip--text'][contains(text(),'1515')])[1]")
-    WebElement ElementArt1515First;
+    WebElementFacade ElementArt1515First;
 
     public void sendINZ904160861(){
         help.Enter_Text(InputINZAndNameTest,"904160861");
@@ -434,42 +444,42 @@ public class PacientLKPage extends PageObject {
 // --------------------  Полная проверка страницы Заказы Проверка работы фильтров-----------------------
 
     @FindBy (xpath = "(//div[@class='ss__select'])[1]")
-    WebElement PeriodFiltr;//Выпадающее меню Показать за период:
+    WebElementFacade PeriodFiltr;//Выпадающее меню Показать за период:
 
     @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Полгода')]")
-    WebElement PeriodOne;//Выбор периода Полгода
+    WebElementFacade PeriodOne;//Выбор периода Полгода
 
     @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Квартал')]")
-    WebElement PeriodSecond;//Выбор периода Квартал
+    WebElementFacade PeriodSecond;//Выбор периода Квартал
 
     @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Месяц')]")
-    WebElement PeriodThird;//Выбор периода Месяц
+    WebElementFacade PeriodThird;//Выбор периода Месяц
 
     @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Все')]")
-    WebElement PeriodAll;//Выбор периода Все
+    WebElementFacade PeriodAll;//Выбор периода Все
 
     @FindBy(xpath = "//div[@class='list-order']")
-    WebElement TableResultFiltr;//Результат отображения по периоду и Статусу заказа
+    WebElementFacade TableResultFiltr;//Результат отображения по периоду и Статусу заказа
 
     //--
 
     @FindBy (xpath = "(//div[@class='ss__select'])[2]")
-    WebElement StatusFiltr;//Выпадающее меню Статус заказа:
+    WebElementFacade StatusFiltr;//Выпадающее меню Статус заказа:
 
     @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Черновик заказа')]")
-    WebElement StatusdOne;//Выбор Статус заказа: Черновик заказа
+    WebElementFacade StatusdOne;//Выбор Статус заказа: Черновик заказа
 
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Выполненный заказ (с результатами)')]")
-    WebElement StatusSecond;//Выбор Статус заказа: Выполненный заказ (с результатами)
+    WebElementFacade StatusSecond;//Выбор Статус заказа: Выполненный заказ (с результатами)
 
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Сформированный заказ')]")
-    WebElement StatusThird;//Выбор Статус заказа: Сформированный заказ
+    WebElementFacade StatusThird;//Выбор Статус заказа: Сформированный заказ
 
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Результаты без заказа')]")
-    WebElement StatusFourth;//Выбор Статус заказа: Результаты без заказа
+    WebElementFacade StatusFourth;//Выбор Статус заказа: Результаты без заказа
 
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Все')]")
-    WebElement StatusAll;//Выбор Статус заказа: Все
+    WebElementFacade StatusAll;//Выбор Статус заказа: Все
 
 
     public void PeriodOne(){
@@ -529,16 +539,16 @@ public class PacientLKPage extends PageObject {
 //---------------------------Проверить кнопки Отменить Распечатать в списке-------------------
 
     @FindBy(xpath = "//h2[contains(text(),'LK000432080')]")
-    WebElement LK000432080;//Заказ LK000432080
+    WebElementFacade LK000432080;//Заказ LK000432080
 
     @FindBy(xpath = "(//button[@class='list-order__action tablet-hide printer'])[1]")
-    WebElement PrintLK000432080;//Кнопка Распечатать
+    WebElementFacade PrintLK000432080;//Кнопка Распечатать
 
     @FindBy(xpath = "(//button[@class='list-order__action repiter'])[1]")
-    WebElement ReplayLK000432080;//Кнгопка Повторить
+    WebElementFacade ReplayLK000432080;//Кнгопка Повторить
 
     @FindBy(xpath = "(//button[@class='list-order__action cansler'])[3]")
-    WebElement CancelLK000432080;//Кнопка Отменить
+    WebElementFacade CancelLK000432080;//Кнопка Отменить
 
 
     public void MoveToElementLK000432080(){    //Наведение мыши на LK000432080 и проверка кнопок
@@ -553,22 +563,22 @@ public class PacientLKPage extends PageObject {
 //------------------Найти заказ LK000432080 и переимовать его в Avtotest---------------------------
 
     @FindBy(xpath = "(//button[@class='list-order__edit'])[3]")
-    WebElement PencilLK000432080;//Карандаш для переименования
+    WebElementFacade PencilLK000432080;//Карандаш для переименования
 
     @FindBy(xpath = "//input[@placeholder='LK000432080']")
-    WebElement InputLK000432080;//поле переименования заказа
+    WebElementFacade InputLK000432080;//поле переименования заказа
 
     @FindBy(xpath = "//input[@placeholder='LK000432080']/../button[@class='list-order__send sender_alias']")
-    WebElement ButtonPrinyatIzmeneniyaLK000432080;//Кнопка применить
+    WebElementFacade ButtonPrinyatIzmeneniyaLK000432080;//Кнопка применить
 
     @FindBy(xpath = "//input[@placeholder='LK000432080']/../button[@class='list-order__cansel']")
-    WebElement ButtonCancelIzmeneniyaLK00043208;//Кнопка отмена
+    WebElementFacade ButtonCancelIzmeneniyaLK00043208;//Кнопка отмена
 
     @FindBy(xpath = "//h2[@class='list-order__title'][contains(text(),'Avtotest')]")
-    WebElement NameAvtotest;//Переименованый заказ Avtotest
+    WebElementFacade NameAvtotest;//Переименованый заказ Avtotest
 
     @FindBy(xpath = "//h2[@class='list-order__title'][contains(text(),'LK000432080')]")
-    WebElement NameLK000432080;//Переименованый заказ Avtotest
+    WebElementFacade NameLK000432080;//Переименованый заказ Avtotest
 
     public void NameAvtotest(){
         help.Click_Method(PencilLK000432080);//Нажать карандаш
@@ -594,13 +604,13 @@ public class PacientLKPage extends PageObject {
     //-------------------------
 
     @FindBy(xpath = "(//a[@class='list-order__fill-link to-detail'])[3]")
-    WebElement ZakazAvtotest0;//Заказ Avtotest (LK000432080)
+    WebElementFacade ZakazAvtotest0;//Заказ Avtotest (LK000432080)
 
     @FindBy(xpath = "//h2[@class='list-order__title list-order__title--inner']")
-    WebElement NameZakzPosleIzm;//Имея в теле заказа после переиминование осталось прежним Заказ от 18.06.2019 №LK000432080
+    WebElementFacade NameZakzPosleIzm;//Имея в теле заказа после переиминование осталось прежним Заказ от 18.06.2019 №LK000432080
 
     @FindBy(xpath = "//a[@class='back-link']//*[contains(text(),'Назад к списку заказов')]")
-    WebElement ButtonNazad;
+    WebElementFacade ButtonNazad;
 
 
 
@@ -618,16 +628,16 @@ public class PacientLKPage extends PageObject {
     //-------------------------------Оповещение о переходе на старый ЛК-------------------------------
 
     @FindBy(xpath = "//div[@class='attention--header--button']")
-    WebElement ButtonKolokol;//Колокольчик
+    WebElementFacade ButtonKolokol;//Колокольчик
 
     @FindBy(xpath = "//div[@class='attention--header--showmore']")
-    WebElement ButtonPokazVse;//показать все
+    WebElementFacade ButtonPokazVse;//показать все
 
     @FindBy(xpath = "//a[contains(text(),'ссылке')]")
-    WebElement LinkOldLK;//ссылке на старый ЛК
+    WebElementFacade LinkOldLK;//ссылке на старый ЛК
 
     @FindBy(xpath = "//div[@class='girl']")
-    WebElement GirlImage;//отображение старого ЛК
+    WebElementFacade GirlImage;//отображение старого ЛК
 
     public void OldLK(){
         help.Click_Method(ButtonKolokol);//Нажать Колокольчик

@@ -387,7 +387,7 @@ public class PacientLK2Page extends PageObject {
     @FindBy(xpath = "//div[@class='h3']")// Текст Спасибо! Ваш ответ принят.
     WebElement MessagePosEmail;
 
-    @FindBy(xpath = "//td[contains(text(),'Общий белок')]")//Элемент Общий белок в таблице динамики
+    @FindBy(xpath = "//td[contains(text(),'Общий анализ')]")//Элемент Общий анализ крови в таблице динамики
     WebElement TablElementObsh;   /////------------------При клике Можно применить для перехода к диаграме Общего белка
 
     @FindBy(xpath = "//canvas[@class='flot-overlay']")//Проверить что Строится график при переходе на конкретное исследование
@@ -399,21 +399,18 @@ public class PacientLK2Page extends PageObject {
 
     public void checkOrderedAnalyzesInBasketBlock(){
         help.Click_Method(ElementDinamika);
-        help.Check_Enabled_Element(NotRezult);
+//        help.Check_Enabled_Element(NotRezult);
         help.Check_Enabled_Element(ZagolovokDinam);
     }
 
     public void verifyTotalText(){
         help.Enter_Text(InputOnePeriod,"2018/10/01");
-        help.Enter_Text(InputToPeriod,"2019/07/16");
+        help.Enter_Text(InputToPeriod,"2019/08/05");
         help.Click_Method(ViborIssledov);
-        help.Click_Method(ViborIssledovObsh);
-        help.Click_Method(BootnOkDinam);
+        help.Click_Method(ViborIssledovAll);
+//        help.Click_Method(BootnOkDinam);
         help.Check_Enabled_Element(TablElementObsh);
-        help.Click_Method(ViborIssledov);
-        help.Click_Method(ViborIssledovObsh);
-        help.Click_Method(BootnOkDinam);
-    }
+}
 
     public void verify2TotalText(){
         help.Click_Method(ViborIssledov);
@@ -437,9 +434,9 @@ public class PacientLK2Page extends PageObject {
     }
 
     public void verifyCheckoutOrderText(){
-        help.Click_Method(ViborIssledov);
-        help.Click_Method(ViborIssledovObsh);
-        help.Click_Method(BootnOkDinam);
+//        help.Click_Method(ViborIssledov);
+//        help.Click_Method(ViborIssledovObsh);
+//        help.Click_Method(BootnOkDinam);
         help.Check_Enabled_Element(TablElementObsh);
     }
 
