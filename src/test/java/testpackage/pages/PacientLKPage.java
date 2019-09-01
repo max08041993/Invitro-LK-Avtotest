@@ -82,7 +82,7 @@ public class PacientLKPage extends PageObject {
     @FindBy (xpath = "//button[@id='header_button_login']")
     WebElementFacade ButtonLogin;
 
-    @FindBy (xpath = "//a[@class='autorisation__link-forgot link'][contains(text(),'Забыли')]")//Забыли пароль
+    @FindBy (xpath = "//a[@class='autorisation__link-forgot link forgetPass autorisation__link-passforgot'][contains(text(),'Забыли')]")//Забыли пароль
     WebElementFacade ZabilPassword;
 
     @FindBy(xpath = "//input[@id='loginForgot']")
