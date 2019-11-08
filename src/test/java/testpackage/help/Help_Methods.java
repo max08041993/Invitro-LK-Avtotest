@@ -4,6 +4,7 @@ package testpackage.help;
 import jnr.ffi.Struct;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.core.pages.*;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -95,7 +96,7 @@ public class Help_Methods extends PageObject {
 
     /*
      public void Click_On_All_Elements(By Xpath_Massive, By Button_Click, By Check_City, String Check_Text, By City, By Another, By Moscow) {//, By test2
-         List<WebElementFacade> massive = findAll(Xpath_Massive);
+         List<WebElement> massive = findAll(Xpath_Massive);
          for (int i = 0; i <massive.size()-1; i++) {
              massive = findAll(Xpath_Massive);
              massive.get(i).waitUntilVisible();
