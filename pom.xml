@@ -72,7 +72,7 @@
                     <reuseForks>true</reuseForks>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-                    <rerunFailingTestsCount>3</rerunFailingTestsCount>
+                    <rerunFailingTestsCount>2</rerunFailingTestsCount>
                 </configuration>
                 <executions>
                     <execution>
