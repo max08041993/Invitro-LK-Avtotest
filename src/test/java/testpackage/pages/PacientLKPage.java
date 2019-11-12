@@ -5,6 +5,7 @@ import net.thucydides.core.pages.PageObject;
 import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import testpackage.help.Help_Methods;
@@ -100,8 +101,11 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath="//*[@id='phone']")// Поле ввода 'Телефон'
             WebElementFacade InputTel;
 
-    @FindBy(xpath="//*[@class='form__field form__field--w33']//input[@id='email']")// Поле ввода 'Email'
+    @FindBy(xpath="//input[@id='emailSend']")// Поле ввода 'Email'
             WebElementFacade InputEmail;
+
+    @FindBy(xpath="//input[@id='email']")// Поле ввода 'Email'
+            WebElementFacade Input2Email;
 
     @FindBy(xpath="//button[contains(text(),'Сохранить')]")// Кнопка 'Сохранить'
             WebElementFacade ButtonSave;
@@ -370,7 +374,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус7')]")
     WebElementFacade TestovyBonus7;
 
-    @FindBy(xpath = "//div[@class='list-order__item list-order__item--on-hover to-detail_main']//a[contains(text(),'ИНЗ 904160861')]")
+    @FindBy(xpath = "//div[@class='list-order']/*[1]")
     WebElementFacade INZ904160861;
 
     @FindBy(xpath = "//a[@class='list-order__action ddownload']")
@@ -486,6 +490,16 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//a[@class='back-link']//*[contains(text(),'Назад к списку заказов')]")
     WebElementFacade ButtonNazad;
 
+    @FindBy(xpath = "//div[@class='input__icon-wrap input__icon-wrap--calendar']")
+    WebElementFacade Inputcalendar;
+
+    @FindBy(xpath = "//div[@class='preload__overlay']")
+    WebElementFacade blockWindow;
+
+    @FindBy(xpath = "//div[@class='lk-dynamic-table__content']")
+    WebElementFacade tableDinamIsled;
+
+
 
     //------------------------------------------------------------------------------------------
 
@@ -588,16 +602,17 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickRadioEmailGet(){
-        help.Click_Method(RadioEmailGet);
+        RadioEmailGet.waitUntilClickable().click();
     }
 
-    public void inputInputEmail(){
-        help.Click_Method(InputEmail);
-        help.Enter_Text(InputEmail,"mkozlov@invitro.ru");
+    public void inputInputEmail(String adr){
+        InputEmail.sendKeys(adr);
+
     }
 
     public void clickButtonSend(){
-        help.Click_Method(ButtonSend);
+        ButtonSend.waitUntilClickable().click();
+        blockWindow.waitUntilNotVisible();
     }
 
     public void visiblePodskazkaSend(){
@@ -619,11 +634,11 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickZabilPassword(){
-        help.Click_Method(ZabilPassword);
+        ZabilPassword.waitUntilClickable().click();
     }
 
     public void inputInputEmailOrTel(){
-        help.Enter_Text(InputEmailOrTel,"pacient.lk5.invitro@yandex.ru");
+        InputEmailOrTel.waitUntilVisible().sendKeys("pacient.lk5.invitro@yandex.ru");
     }
 
     public void inputNewPassword(){
@@ -639,8 +654,8 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickButtonVostanovPasword(){
-        help.Click_Method(ButtonVostanovPasword);
-        help.getSlow();
+        ButtonVostanovPasword.waitUntilClickable().click();
+        ButtonVostanovleniyaPasword.isVisible();
     }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -649,8 +664,6 @@ public class PacientLKPage extends PageObject {
 
     // Авторизация
 
-    @FindBy(xpath = "//div[@class='preload__overlay']")
-    WebElementFacade blockWindow;
 
     public void sendLogandPass(String login, String password) {
         LoginFieldAuthorization.waitUntilClickable().click();
@@ -687,14 +700,16 @@ public class PacientLKPage extends PageObject {
         ViborMedKart.click();
         TestovyBonus7.waitUntilClickable().click();
         TestovyBonus7.waitUntilNotVisible();
+        loadDan.waitUntilNotVisible();
     }
 
     public void clickINZ904160861(){
-        help.Click_Method(INZ904160861);
+        waitABit(2000);
+        INZ904160861.click();
     }
 
     public void clickDownloadLK(){
-        help.Click_Method(DownloadLK);
+       DownloadLK.waitUntilClickable().click();
     }
 
     public void clickFindOnEmailLK(String AdrEmail){
@@ -706,9 +721,9 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visibleTableResult(){
-        help.Click_Method(OpenZakaz);
-        help.getSlow();
-        help.Check_Visible_Element(Table1Result);
+        OpenZakaz.waitUntilClickable().click();
+        waitABit(2000);
+        Table1Result.waitUntilVisible().isVisible();
     }
 
     // Ввод неверного Логина пароля
@@ -965,108 +980,135 @@ public class PacientLKPage extends PageObject {
 
 
     public void visibleClosePopUpNewPacient(){
-        help.Check_Enabled_Element(ChecBoxDisabled);
-//        help.Check_Enabled_Element(FullChecBoxActived);
+        ChecBoxDisabled.waitUntilVisible().isVisible();
         ChecBoxActived.waitUntilClickable().click();
         ButtonPodtverditEmail.waitUntilClickable().click();
-        help.Verify_Text(MessageGoodSendEmail,"Проверьте почту");
+        Assertions.assertThat(MessageGoodSendEmail.getText()).isEqualTo("Проверьте почту");
         ButonContinete.waitUntilClickable().click();
+        waitABit(2000);
     }
-
 
 
     public void clickChooseMalePacient(){
         AddMedkart.waitUntilClickable().click();
         ButtonMen.waitUntilClickable().click();
         ButtonGerl.waitUntilVisible().isVisible();
-        help.Enter_Text(InputFamily,"Тест08");
-        help.Enter_Text(InputName,"Тест08");
-        help.Enter_Text(InputSurename,"Тест08");
+        InputFamily.sendKeys("Тест08");
+        InputName.sendKeys("Тест08");
+        InputSurename.sendKeys("Тест08");
         InputData.waitUntilClickable().click();
-        help.Enter_Text(InputData,"01011980");
-        help.Enter_Text(InputTel,"9999999999");
-        help.Enter_Text(InputEmail,"test@mail.ru");
+        InputData.sendKeys("01011980");
+        InputTel.click();
+        InputTel.sendKeys("9999999999");
+        Input2Email.sendKeys("test@mail.ru");
         ButtonGoToInRazdel.waitUntilVisible().isVisible();
         ButtonSave.waitUntilClickable().click();
         MewMedkarta.waitUntilVisible().isVisible();
     }
 
 
+@FindBy(xpath = "//div[@class='box-empty__msg']")
+WebElementFacade loadDan;
 
+    @FindBy(xpath = "//h1[contains(text(),'Программа «ИНВИТРО Здоровый плюс»')]")
+    WebElementFacade titleBlockBB;
 
 
     public void enterAddNameField(){
         ProgrammaInvitroZdorPlus.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
     }
 
     public void enterAddSecondnameField(){
-        NotPL.waitUntilClickable().click();
+        NotPL.waitUntilVisible().isVisible();
     }
 
 
 
     public void enterAddPhoneField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус5
         ViborMedKart.waitUntilClickable().click();
-        help.Click_Method(BB5);
-        help.Check_Enabled_Element(NominalDK);
+        BB5.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
     }
 
     public void enterAddBirthdayField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус7
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(BB7);
-        help.Check_Enabled_Element(NominalDK);
+        ViborMedKart.waitUntilClickable().click();
+        BB7.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
     }
 
     public void clickNHematologicalStudies(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(BB10);
-        help.Check_Enabled_Element(NominalDK);
+        ViborMedKart.waitUntilClickable().click();
+        BB10.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
     }
 
     public void enterNewPacientEmailTField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10п
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(NewBB10p);
-        help.Check_Enabled_Element(NominalDK);
+        ViborMedKart.waitUntilClickable().click();
+        NewBB10p.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
     }
 
     public void clickNewPacientSaveButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10с
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(New2BB10c);
-        help.Check_Enabled_Element(NominalDK);
+        ViborMedKart.waitUntilClickable().click();
+        New2BB10c.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
     }
 
     public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(DK5);
-        help.Check_Enabled_Element(NominalDK);
-        help.Check_Enabled_Element(ImageDK);
+        ViborMedKart.waitUntilClickable().click();
+        DK5.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
+        ImageDK.waitUntilVisible().isVisible();
     }
 
     public void enterPasswordField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт10
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(DK10);
-        help.Check_Enabled_Element(NominalDK);
-        help.Check_Enabled_Element(ImageDK);
+        ViborMedKart.waitUntilClickable().click();
+        DK10.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
+        ImageDK.waitUntilVisible().isVisible();
     }
 
     public void clickNewOrderButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт13
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(DK13);
-        help.Check_Enabled_Element(NotPL);
+        ViborMedKart.waitUntilClickable().click();
+        DK13.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NotPL.waitUntilVisible().isVisible();
     }
 
     public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(DK20);
-        help.Check_Enabled_Element(NominalDK);
-        help.Check_Enabled_Element(ImageDK);
+        ViborMedKart.waitUntilClickable().click();
+        DK20.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
+        ImageDK.waitUntilVisible().isVisible();
     }
 
     public void clickAddSecondClinicalBloodTest(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт30
-        help.Click_Method(ViborMedKart);
-        help.Click_Method(DK30);
-        help.Check_Enabled_Element(NominalDK);
-        help.Check_Enabled_Element(ImageDK);
+        ViborMedKart.waitUntilClickable().click();
+        DK30.waitUntilClickable().click();
+        loadDan.waitUntilVisible();
+        loadDan.waitUntilNotVisible();
+        NominalDK.waitUntilVisible().isVisible();
+        ImageDK.waitUntilVisible().isVisible();
+        loadDan.waitUntilNotVisible();
     }
 
     public void checkOrderedAnalyzesInBasketBlock(){
@@ -1074,9 +1116,6 @@ public class PacientLKPage extends PageObject {
 //        help.Check_Enabled_Element(NotRezult);
         ZagolovokDinam.waitUntilVisible().isVisible();
     }
-
-    @FindBy(xpath = "//div[@class='lk-dynamic-table__content']")
-    WebElementFacade tableDinamIsled;
 
     public void verifyTotalText(){
         InputOnePeriod.sendKeys("2018/10/01");

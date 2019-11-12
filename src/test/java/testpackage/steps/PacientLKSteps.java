@@ -80,9 +80,9 @@ public class PacientLKSteps {
         page.clickRadioEmailGet();
     }
 
-    @When("Ввод Email для отправки результата")
-    public void inputInputEmail(){
-        page.inputInputEmail();
+    @When("Ввод Email (.*) для отправки результата")
+    public void inputInputEmail(String adr){
+        page.inputInputEmail(adr);
     }
 
     @When("Нажать кнопку Отправить результат")
@@ -157,9 +157,9 @@ public class PacientLKSteps {
         page.clickDownloadLK();
     }
 
-    @When("Отправка результата на email из ЛК")
-    public void clickFindOnEmailLK(){
-        page.clickFindOnEmailLK("mkozlov@invitro.ru");
+    @When("Отправка результата на email (.*) из ЛК")
+    public void clickFindOnEmailLK(String adr){
+        page.clickFindOnEmailLK(adr);
     }
 
     @When("Проверка успешного отображения таблицы с результатами")
@@ -202,9 +202,8 @@ public class PacientLKSteps {
         page.clickZabilPassword();
     }
 
-    @When("Ввести email и кликнуть Восстановить пароль")
+    @When("Кликнуть Восстановить пароль")
     public void inputInputEmailOrTel(){
-        page.inputInputEmailOrTel();
         page.clickButtonVostanovPasword();
     }
 
