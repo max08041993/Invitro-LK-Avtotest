@@ -74,7 +74,7 @@ public class Help_Methods extends PageObject {
     public void Click_Method(WebElement test) { //Метод клика по элементу
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.elementToBeClickable(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         element(webElement).waitUntilVisible().waitUntilClickable().click();
         getSlow();
 
@@ -89,7 +89,7 @@ public class Help_Methods extends PageObject {
     public void Check_Enabled_Element(WebElement test) {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         Assertions.assertThat(element(webElement).isEnabled());
     }
 
@@ -116,7 +116,7 @@ public class Help_Methods extends PageObject {
     public void Verify_Text(WebElement test, String test1) {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         Assertions.assertThat(test.getText()).isEqualTo(test1);
     }
 
@@ -129,14 +129,14 @@ public class Help_Methods extends PageObject {
         scrollTo(test);
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         Assertions.assertThat(element(webElement).isVisible());
     }
 
     public boolean Visibility_Of(WebElement test) {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         return element(webElement).isVisible();
     }
 
@@ -147,14 +147,14 @@ public class Help_Methods extends PageObject {
     public void Enter_Text(WebElement test, String test1) {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         webElement.sendKeys(test1);
     }
 
     public String Get_Text(WebElement test) {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
-        elementHighlight(webElement);
+//        elementHighlight(webElement);
         return webElement.getText();
     }
 
