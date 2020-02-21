@@ -3,14 +3,11 @@ package testpackage.pages;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import testpackage.help.Help_Methods;
 import java.util.ArrayList;
-import testpackage.pages.PacientLKPage;
 
 public class PacientLKPage extends PageObject {
 
@@ -325,7 +322,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='h3']")// Текст Спасибо! Ваш ответ принят.
             WebElementFacade MessagePosEmail;
 
-    @FindBy(xpath = "//td[contains(text(),'Общий анализ')]")//Элемент Общий анализ крови в таблице динамики
+    @FindBy(xpath = "//span[contains(text(),'Лейкоциты')]")//Элемент Общий анализ крови в таблице динамики
             WebElementFacade TablElementObsh;   /////------------------При клике Можно применить для перехода к диаграме Общего белка
 
     @FindBy(xpath = "//canvas[@class='flot-overlay']")//Проверить что Строится график при переходе на конкретное исследование
@@ -334,7 +331,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@id='detail-table']")//Таблица Деталей Общего белка
             WebElementFacade TableDetalObshZak;
 
-    @FindBy(xpath = "(//button[@class='list-order__edit'])[3]")
+    @FindBy(xpath = "(//button[@class='list-order__edit'])[2]")
     WebElementFacade PencilLK000432080;//Карандаш для переименования
 
     @FindBy(xpath = "//input[@placeholder='LK000432080']")
@@ -460,13 +457,13 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//h2[contains(text(),'LK000432080')]")
     WebElementFacade LK000432080;//Заказ LK000432080
 
-    @FindBy(xpath = "(//button[@class='list-order__action tablet-hide printer'])[1]")
+    @FindBy(xpath = "(//button[@class='list-order__action tablet-hide printer'])[2]")
     WebElementFacade PrintLK000432080;//Кнопка Распечатать
 
-    @FindBy(xpath = "(//button[@class='list-order__action repiter'])[1]")
+    @FindBy(xpath = "(//button[@class='list-order__action repiter'])[2]")
     WebElementFacade ReplayLK000432080;//Кнгопка Повторить
 
-    @FindBy(xpath = "(//button[@class='list-order__action cansler'])[3]")
+    @FindBy(xpath = "(//button[@class='list-order__action cansler'])[2]")
     WebElementFacade CancelLK000432080;//Кнопка Отменить
 
     @FindBy(xpath = "//div[@class='attention--header--button']")
@@ -481,7 +478,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='girl']")
     WebElementFacade GirlImage;//отображение старого ЛК
 
-    @FindBy(xpath = "(//a[@class='list-order__fill-link to-detail'])[3]")
+    @FindBy(xpath = "(//a[@class='list-order__fill-link to-detail'])[2]")
     WebElementFacade ZakazAvtotest0;//Заказ Avtotest (LK000432080)
 
     @FindBy(xpath = "//h2[@class='list-order__title list-order__title--inner']")
@@ -905,6 +902,7 @@ public class PacientLKPage extends PageObject {
     public void MoveToElementLK000432080(){    //Наведение мыши на LK000432080 и проверка кнопок
         Actions actions = new Actions(getDriver());
         actions.moveToElement(LK000432080).build().perform();
+        waitABit(1000);
         PrintLK000432080.waitUntilVisible().isVisible();
         ReplayLK000432080.isVisible();
         CancelLK000432080.isVisible();
@@ -1113,7 +1111,6 @@ WebElementFacade loadDan;
 
     public void checkOrderedAnalyzesInBasketBlock(){
         ElementDinamika.waitUntilClickable().click();
-//        help.Check_Enabled_Element(NotRezult);
         ZagolovokDinam.waitUntilVisible().isVisible();
     }
 
@@ -1122,17 +1119,7 @@ WebElementFacade loadDan;
         InputToPeriod.sendKeys("2019/08/05");
         ViborIssledov.click();
         ViborIssledovAll.click();
-//        help.Click_Method(BootnOkDinam);
         tableDinamIsled.waitUntilVisible().isVisible();
-    }
-
-    public void verify2TotalText(){
-        help.Click_Method(ViborIssledov);
-        help.Click_Method(ViborIssledovAll);
-        help.Click_Method(BootnOkDinam);
-        help.Check_Enabled_Element(TablElementObsh);
-        help.Click_Method(ViborIssledovObsh);
-        help.Click_Method(BootnOkDinam);
     }
 
     public void clickChoosePacientOrderPage(){
