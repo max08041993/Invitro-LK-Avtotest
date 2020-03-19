@@ -371,7 +371,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус7')]")
     WebElementFacade TestovyBonus7;
 
-    @FindBy(xpath = "//div[@class='list-order']/*[1]")
+    @FindBy(xpath = "(//div[@class='list-order']/div[1])[1]")
     WebElementFacade INZ904160861;
 
     @FindBy(xpath = "//a[@class='list-order__action ddownload']")
@@ -389,7 +389,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='conteiner inner']")
     WebElementFacade ZakazyAktiv;
 
-    @FindBy(xpath = "//div[@class='list-order__item list-order__item--on-result showDetailInzInfo showDetailInzInfoClicker doneOrder']")
+    @FindBy(xpath = "//div[@class='list-order__item list-order__item--on-result showDetailInzInfo showDetailInzInfoClicker doneOrder']//h2")
     WebElementFacade OpenZakaz;
 
     @FindBy(xpath = "//div[@class='analysis-table analysis-table--no-padding-left analysis-table--v-align-top']")
@@ -595,7 +595,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickClose(){
-        Close.click();
+        Close.waitUntilClickable().click();
     }
 
     public void clickRadioEmailGet(){
@@ -710,11 +710,12 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickFindOnEmailLK(String AdrEmail){
-        help.Click_Method(FindOnEmailLK);
-        help.getSlow();
-        help.Click_Method(InputEmailLK);
-        help.Enter_Text(InputEmailLK,AdrEmail);//mkozlov@invitro.ru
-        help.Click_Method(SendOtpravitLK);
+        FindOnEmailLK.waitUntilClickable().click();
+        waitABit(2000);
+        InputEmailLK.waitUntilClickable().click();
+        InputEmailLK.sendKeys(AdrEmail);//mkozlov@invitro.ru
+        SendOtpravitLK.waitUntilClickable().click();
+        waitABit(1000);
     }
 
     public void visibleTableResult(){
@@ -792,8 +793,8 @@ public class PacientLKPage extends PageObject {
 
 
 
-    public void sendINZ904160861(){
-        InputINZAndNameTest.sendKeys("0319941724987");
+    public void sendINZ(String Namber){
+        InputINZAndNameTest.sendKeys(Namber);
         waitABit(1000);
     }
 
@@ -802,7 +803,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visibleINZ904160861(){
-        Assertions.assertThat(ZakazOt21Fev.getText()).isEqualTo("0319941724987");
+        Assertions.assertThat(ZakazOt21Fev.getText()).isEqualTo("LK001057389");
     }
 
     public void sendResetFiltr(){

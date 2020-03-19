@@ -226,9 +226,9 @@ public class PacientLKSteps {
 
     // --------------------  Полная проверка страницы Заказы -----------------------
 
-    @When("Проверка поиска по ИНЗ 0319941724987")
-    public void SearchINZ904160861(){
-        page.sendINZ904160861();//ввод ИНЗ 3591439335162
+    @When("Проверка поиска по ИНЗ (.*)")
+    public void SearchINZ904160861(String Namber){
+        page.sendINZ(Namber);//ввод ИНЗ 3591439335162
         page.sendSearch();//Кнопка поиска
         page.visibleINZ904160861();//Заголовок
         page.sendResetFiltr();//Сброс фильтра
