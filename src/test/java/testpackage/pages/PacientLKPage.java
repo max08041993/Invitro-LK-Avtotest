@@ -1015,7 +1015,7 @@ WebElementFacade loadDan;
 
     public void enterAddNameField(){
         ProgrammaInvitroZdorPlus.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
     }
 
@@ -1028,7 +1028,7 @@ WebElementFacade loadDan;
     public void enterAddPhoneField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус5
         ViborMedKart.waitUntilClickable().click();
         BB5.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
     }
@@ -1036,7 +1036,7 @@ WebElementFacade loadDan;
     public void enterAddBirthdayField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус7
         ViborMedKart.waitUntilClickable().click();
         BB7.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
     }
@@ -1044,7 +1044,7 @@ WebElementFacade loadDan;
     public void clickNHematologicalStudies(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10
         ViborMedKart.waitUntilClickable().click();
         BB10.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
     }
@@ -1052,7 +1052,7 @@ WebElementFacade loadDan;
     public void enterNewPacientEmailTField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10п
         ViborMedKart.waitUntilClickable().click();
         NewBB10p.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
     }
@@ -1060,7 +1060,7 @@ WebElementFacade loadDan;
     public void clickNewPacientSaveButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10с
         ViborMedKart.waitUntilClickable().click();
         New2BB10c.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
     }
@@ -1068,7 +1068,7 @@ WebElementFacade loadDan;
     public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5
         ViborMedKart.waitUntilClickable().click();
         DK5.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
         ImageDK.waitUntilVisible().isVisible();
@@ -1077,7 +1077,7 @@ WebElementFacade loadDan;
     public void enterPasswordField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт10
         ViborMedKart.waitUntilClickable().click();
         DK10.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
         ImageDK.waitUntilVisible().isVisible();
@@ -1086,7 +1086,7 @@ WebElementFacade loadDan;
     public void clickNewOrderButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт13
         ViborMedKart.waitUntilClickable().click();
         DK13.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NotPL.waitUntilVisible().isVisible();
     }
@@ -1094,7 +1094,7 @@ WebElementFacade loadDan;
     public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
         ViborMedKart.waitUntilClickable().click();
         DK20.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
         ImageDK.waitUntilVisible().isVisible();
@@ -1103,7 +1103,7 @@ WebElementFacade loadDan;
     public void clickAddSecondClinicalBloodTest(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт30
         ViborMedKart.waitUntilClickable().click();
         DK30.waitUntilClickable().click();
-        loadDan.waitUntilVisible();
+        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isVisible();
         ImageDK.waitUntilVisible().isVisible();
