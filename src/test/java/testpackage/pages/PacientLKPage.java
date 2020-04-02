@@ -496,6 +496,20 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='lk-dynamic-table__content']")
     WebElementFacade tableDinamIsled;
 
+    @FindBy(xpath = "//div[@id='headerAttention'][@class='attention--header open']")
+    WebElementFacade headerAttentionOpen;
+
+    @FindBy(xpath = "//div[@class='box-empty__msg']")
+    WebElementFacade loadDan;
+
+    @FindBy(xpath = "//h1[contains(text(),'Программа «ИНВИТРО Здоровый плюс»')]")
+    WebElementFacade titleBlockBB;
+
+    @FindBy(xpath = "//*[text()='Загрузка...']")
+    WebElementFacade blockLoad;
+
+    @FindBy(xpath = "//div[@class='attention--header--list hidden']//div[@class='close-block']")
+    WebElementFacade messageComand;
 
 
     //------------------------------------------------------------------------------------------
@@ -512,8 +526,6 @@ public class PacientLKPage extends PageObject {
         ButtonScetSave.waitUntilVisible().isVisible();
     }
 
-    @FindBy(xpath = "//*[text()='Загрузка...']")
-    WebElementFacade blockLoad;
 
     public void clickGoToBasketButton(){
         ElementSecurity.waitUntilClickable().click();
@@ -536,6 +548,9 @@ public class PacientLKPage extends PageObject {
 
 
     public void ClickYesMoskow(){
+        if (messageComand.isVisible()){
+            messageComand.click();
+        }
         if (find(Moscow).getText().equals("Москва"))
         {
             ChangeYesOk.waitUntilClickable().click();
@@ -957,13 +972,17 @@ public class PacientLKPage extends PageObject {
 
     //-------------------------------Оповещение о переходе на старый ЛК-------------------------------
 
-
-
     public void OldLK(){
+        if (headerAttentionOpen.isVisible()){
+            ButtonPokazVse.waitUntilClickable().click();    //Нажать показать все
+            LinkOldLK.click();//Перейти по ссылке на старый ЛК
+            GirlImage.waitUntilVisible().isVisible();//Проверить отображение старого ЛК
+        }else {
         ButtonKolokol.click();//Нажать Колокольчик
         ButtonPokazVse.waitUntilClickable().click();    //Нажать показать все
         LinkOldLK.click();//Перейти по ссылке на старый ЛК
         GirlImage.waitUntilVisible().isVisible();//Проверить отображение старого ЛК
+            }
     }
 
     public void MedKarty(){
@@ -1006,11 +1025,6 @@ public class PacientLKPage extends PageObject {
     }
 
 
-@FindBy(xpath = "//div[@class='box-empty__msg']")
-WebElementFacade loadDan;
-
-    @FindBy(xpath = "//h1[contains(text(),'Программа «ИНВИТРО Здоровый плюс»')]")
-    WebElementFacade titleBlockBB;
 
 
     public void enterAddNameField(){
