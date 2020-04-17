@@ -768,7 +768,7 @@ public class PacientLKPage extends PageObject {
         help.getSlow();
         help.Click_Method(ButtonInput);
         help.getSlow();
-        help.Verify_Text(ErrorLogPass,"логин не является корректным email или телефоном");
+        help.Verify_Text(ErrorLogPass,"Ошибка авторизации");
     }
 
     public void enterFallPasswordFieldAuthorization() { // Ввод Неверного пароля
@@ -779,7 +779,7 @@ public class PacientLKPage extends PageObject {
         help.getSlow();
         help.Click_Method(ButtonInput);
         help.getSlow();
-        help.Verify_Text(ErrorLogPass,"неверный логин/пароль пользователя");
+        help.Verify_Text(ErrorLogPass,"Ошибка авторизации");
     }
 
     public void enterFallLoginFieldAuthorization() { // Ввод Неверного Имени
@@ -789,7 +789,7 @@ public class PacientLKPage extends PageObject {
         help.Enter_Text(PasswordFieldAuthorization, "QazWsxEdc");
         help.Click_Method(ButtonInput);
         help.getSlow();
-        help.Verify_Text(ErrorLogPass,"неверный логин/пароль пользователя");
+        help.Verify_Text(ErrorLogPass,"Ошибка авторизации");
     }
 
 
