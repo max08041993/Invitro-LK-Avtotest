@@ -657,11 +657,11 @@ public class PacientLKPage extends PageObject {
     }
 
     public void inputNewPassword(){
-        help.Enter_Text(NewPassword,"12345");
+        NewPassword.waitUntilVisible().sendKeys("12345");
     }
 
     public void clickButtonVostanovleniyaPasword(){
-        help.Click_Method(ButtonVostanovleniyaPasword);
+        ButtonVostanovleniyaPasword.click();
     }
 
     public void visinleMessagePasword(){
@@ -768,7 +768,7 @@ public class PacientLKPage extends PageObject {
         help.getSlow();
         help.Click_Method(ButtonInput);
         help.getSlow();
-        help.Verify_Text(ErrorLogPass,"Ошибка авторизации");
+        help.Verify_Text(ErrorLogPass,"логин не является корректным email или телефоном");
     }
 
     public void enterFallPasswordFieldAuthorization() { // Ввод Неверного пароля
