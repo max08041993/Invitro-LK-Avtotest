@@ -61,7 +61,7 @@ public class Help_Methods extends PageObject {
         public void Click_Method(By test) { //Метод клика по элементу
         find(test).waitUntilClickable().click();}
         public void Check_Visible_Element(By test) {
-        Assertions.assertThat(find(test).isVisible());}
+        Assertions.assertThat(find(test).isDisplayed());}
      Как видно из приведенных выше примеров, в каждом методе есть перменная test,
      но так как они реализованы в разных методах, то программа/автотесты, воспринимает их как уникальные.
     */
@@ -122,7 +122,7 @@ public class Help_Methods extends PageObject {
 
     public void Check_Visible_Element(By test) {
 
-        Assertions.assertThat(find(test).isVisible());
+        Assertions.assertThat(find(test).isDisplayed());
     }
 
     public void Check_Visible_Element(WebElement test) {
@@ -130,14 +130,14 @@ public class Help_Methods extends PageObject {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
 //        elementHighlight(webElement);
-        Assertions.assertThat(element(webElement).isVisible());
+        Assertions.assertThat(element(webElement).isDisplayed());
     }
 
     public boolean Visibility_Of(WebElement test) {
         WebDriverWait longWait = new WebDriverWait(this.getDriver(), 20);
         WebElement webElement = longWait.until(ExpectedConditions.visibilityOf(test));
 //        elementHighlight(webElement);
-        return element(webElement).isVisible();
+        return element(webElement).isDisplayed();
     }
 
     public void Enter_Text(By test, String test1) {

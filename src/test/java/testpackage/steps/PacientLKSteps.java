@@ -2,12 +2,13 @@ package testpackage.steps;
 
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.thucydides.core.annotations.Shared;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import testpackage.pages.PacientLKPage;
 
-import javax.xml.ws.WebEndpoint;
 import java.util.List;
 
 public class PacientLKSteps {
@@ -16,6 +17,9 @@ public class PacientLKSteps {
     // шаги сценария создания мед карты
 
     private String urlPattern = "https://%s";
+
+    @Shared
+    AssertionSteps assertionSteps;
 
 
     @Given("^Открыть страницу по адресу (.*)$")
@@ -427,5 +431,10 @@ public class PacientLKSteps {
 
     @When("Проверить что Строится график при переходе на конкретное исследование" )
     public void verifyOrderListText() { page.verifyOrderListText(); }
+
+    @Then("^Проверяю что файл загрузился$")
+    public void CheckFileHasLoaded() {
+        assertionSteps.softAssertIsTrue("Файл не удалось скачать", page.CheckFileHasLoaded());
+    }
 
 }

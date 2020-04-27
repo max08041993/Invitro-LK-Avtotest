@@ -7,6 +7,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import testpackage.help.Help_Methods;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PacientLKPage extends PageObject {
@@ -523,16 +527,16 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickAddFourthClinicalBloodTest(){
-        InputScetName.waitUntilVisible().isVisible();
-        InputScetEmail.waitUntilVisible().isVisible();
-        InputScetTel.waitUntilVisible().isVisible();
-        ButtonScetSave.waitUntilVisible().isVisible();
+        InputScetName.waitUntilVisible().isDisplayed();
+        InputScetEmail.waitUntilVisible().isDisplayed();
+        InputScetTel.waitUntilVisible().isDisplayed();
+        ButtonScetSave.waitUntilVisible().isDisplayed();
     }
 
 
     public void clickGoToBasketButton(){
         ElementSecurity.waitUntilClickable().click();
-        BlockSecur.waitUntilVisible().isVisible();
+        BlockSecur.waitUntilVisible().isDisplayed();
         OldPassword.sendKeys("a4AxPF3b");
         NewPassword.sendKeys("a4AxPF3b");
         GlazPassword.waitUntilClickable().click();
@@ -544,14 +548,14 @@ public class PacientLKPage extends PageObject {
     }
 
     public void verifyBasketText(){
-        TextLK.waitUntilVisible().isVisible();
+        TextLK.waitUntilVisible().isDisplayed();
         ElementHistory.click();
-        TableHistory.waitUntilVisible().isVisible();
+        TableHistory.waitUntilVisible().isDisplayed();
     }
 
 
     public void ClickYesMoskow(){
-        if (messageComand.isVisible()){
+        if (messageComand.isDisplayed()){
             messageComand.click();
         }
         if (find(Moscow).getText().equals("Москва"))
@@ -575,7 +579,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visiblePopapResult(){
-        PopapResult.waitUntilVisible().isVisible();
+        PopapResult.waitUntilVisible().isDisplayed();
     }
 
     public void inputINZBornSurename(){
@@ -598,13 +602,13 @@ public class PacientLKPage extends PageObject {
 
 
     public void visibleRadioEmailDownload(){
-        RadioEmailGet.isVisible();
-        RadioDownload.isVisible();
+        RadioEmailGet.isDisplayed();
+        RadioDownload.isDisplayed();
     }
 
 
     public void visiblePovtorPoisk(){
-        PovtorPoisk.isVisible();
+        PovtorPoisk.isDisplayed();
     }
 
     public void clickButtonFind(){
@@ -670,7 +674,7 @@ public class PacientLKPage extends PageObject {
 
     public void clickButtonVostanovPasword(){
         ButtonVostanovPasword.waitUntilClickable().click();
-        ButtonVostanovleniyaPasword.isVisible();
+//        ButtonVostanovleniyaPasword.isDisplayed();
     }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -704,11 +708,11 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visibleTextLK(){
-        TextLK.waitUntilVisible().isVisible();
+        TextLK.waitUntilVisible().isDisplayed();
     }
 
     public void visibleZakaziAktiv(){
-        ZakaziAktiv.waitUntilVisible().isVisible();
+        ZakaziAktiv.waitUntilVisible().isDisplayed();
     }
 
     public void clickChooseMedCart() { //Кликнуть, Выбрать мед карту
@@ -739,7 +743,7 @@ public class PacientLKPage extends PageObject {
     public void visibleTableResult(){
         OpenZakaz.waitUntilClickable().click();
         waitABit(2000);
-        Table1Result.waitUntilVisible().isVisible();
+        Table1Result.waitUntilVisible().isDisplayed();
     }
 
     // Ввод неверного Логина пароля
@@ -833,7 +837,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visibleArt1515(){
-        ElementArt1515First.isVisible();
+        ElementArt1515First.isDisplayed();
     }
 
 // --------------------  Полная проверка страницы Заказы Проверка работы фильтров-----------------------
@@ -846,7 +850,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         PeriodOne.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void PeriodSecond(){
@@ -854,7 +858,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         PeriodSecond.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void PeriodThird(){
@@ -862,7 +866,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         PeriodThird.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void PeriodAll(){
@@ -870,7 +874,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         PeriodAll.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void StatusdOne(){
@@ -878,7 +882,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         StatusdOne.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void StatusSecond(){
@@ -886,7 +890,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         StatusSecond.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void StatusThird(){
@@ -894,7 +898,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         StatusThird.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void StatusFourth(){
@@ -902,7 +906,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         StatusFourth.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
     public void StatusAll(){
@@ -910,7 +914,7 @@ public class PacientLKPage extends PageObject {
         waitABit(1000);
         StatusAll.waitUntilClickable().click();
         waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isVisible();
+        TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
 //---------------------------Проверить кнопки Отменить Распечатать в списке-------------------
@@ -922,9 +926,9 @@ public class PacientLKPage extends PageObject {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(LK000432080).build().perform();
         waitABit(1000);
-        PrintLK000432080.waitUntilVisible().isVisible();
-        ReplayLK000432080.isVisible();
-        CancelLK000432080.isVisible();
+        PrintLK000432080.waitUntilVisible().isDisplayed();
+        ReplayLK000432080.isDisplayed();
+        CancelLK000432080.isDisplayed();
     }
 
 
@@ -938,7 +942,7 @@ public class PacientLKPage extends PageObject {
 //        actions.doubleClick(InputLK000432080).build().perform();//Двойной клик по полю ввода
         InputLK000432080.clear();
         InputLK000432080.sendKeys("Avtotest");//Ввести Avtotest
-        ButtonCancelIzmeneniyaLK00043208.isVisible();//Проверить видимость кнопки Отмена
+        ButtonCancelIzmeneniyaLK00043208.isDisplayed();//Проверить видимость кнопки Отмена
         ButtonPrinyatIzmeneniyaLK000432080.click();//Нажать применить
         blockWindow.waitUntilNotVisible();
         Assertions.assertThat(NameAvtotest.getText()).isEqualTo("Avtotest");//Проверить, что название изменилось
@@ -950,7 +954,7 @@ public class PacientLKPage extends PageObject {
 //        actions.doubleClick(InputLK000432080).build().perform();//Двойной клик по полю ввода
         InputLK000432080.clear();
         InputLK000432080.sendKeys("LK000432080");//Ввести Avtotest
-        ButtonCancelIzmeneniyaLK00043208.isVisible();//Проверить видимость кнопки Отмена
+        ButtonCancelIzmeneniyaLK00043208.isDisplayed();//Проверить видимость кнопки Отмена
         ButtonPrinyatIzmeneniyaLK000432080.click();//Нажать применить
         blockWindow.waitUntilNotVisible();
         Assertions.assertThat(NameLK000432080.getText()).isEqualTo("LK000432080");//Проверить, что название изменилось
@@ -976,15 +980,15 @@ public class PacientLKPage extends PageObject {
     //-------------------------------Оповещение о переходе на старый ЛК-------------------------------
 
     public void OldLK(){
-        if (headerAttentionOpen.isVisible()){
+        if (headerAttentionOpen.isDisplayed()){
             ButtonPokazVse.waitUntilClickable().click();    //Нажать показать все
             LinkOldLK.click();//Перейти по ссылке на старый ЛК
-            GirlImage.waitUntilVisible().isVisible();//Проверить отображение старого ЛК
+            GirlImage.waitUntilVisible().isDisplayed();//Проверить отображение старого ЛК
         }else {
         ButtonKolokol.click();//Нажать Колокольчик
         ButtonPokazVse.waitUntilClickable().click();    //Нажать показать все
         LinkOldLK.click();//Перейти по ссылке на старый ЛК
-        GirlImage.waitUntilVisible().isVisible();//Проверить отображение старого ЛК
+        GirlImage.waitUntilVisible().isDisplayed();//Проверить отображение старого ЛК
             }
     }
 
@@ -993,15 +997,15 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickAddNewMedCartPacient(){
-        ZagolovokMeskarty.waitUntilVisible().isVisible();
-        MedkartList.waitUntilVisible().isVisible();;//Прверка успешного перехода и отображения Медкарт
+        ZagolovokMeskarty.waitUntilVisible().isDisplayed();
+        MedkartList.waitUntilVisible().isDisplayed();;//Прверка успешного перехода и отображения Медкарт
     }
 
     //Проверка отображения и функционала Автоматического добавления всех результатов
 
 
     public void visibleClosePopUpNewPacient(){
-        ChecBoxDisabled.waitUntilVisible().isVisible();
+        ChecBoxDisabled.waitUntilVisible().isDisplayed();
         ChecBoxActived.waitUntilClickable().click();
         ButtonPodtverditEmail.waitUntilClickable().click();
         Assertions.assertThat(MessageGoodSendEmail.getText()).isEqualTo("Проверьте почту");
@@ -1013,7 +1017,7 @@ public class PacientLKPage extends PageObject {
     public void clickChooseMalePacient(){
         AddMedkart.waitUntilClickable().click();
         ButtonMen.waitUntilClickable().click();
-        ButtonGerl.waitUntilVisible().isVisible();
+        ButtonGerl.waitUntilVisible().isDisplayed();
         InputFamily.sendKeys("Тест08");
         InputName.sendKeys("Тест08");
         InputSurename.sendKeys("Тест08");
@@ -1022,9 +1026,9 @@ public class PacientLKPage extends PageObject {
         InputTel.click();
         InputTel.sendKeys("9999999999");
         Input2Email.sendKeys("test@mail.ru");
-        ButtonGoToInRazdel.waitUntilVisible().isVisible();
+        ButtonGoToInRazdel.waitUntilVisible().isDisplayed();
         ButtonSave.waitUntilClickable().click();
-        MewMedkarta.waitUntilVisible().isVisible();
+        MewMedkarta.waitUntilVisible().isDisplayed();
     }
 
 
@@ -1037,7 +1041,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void enterAddSecondnameField(){
-        NotPL.waitUntilVisible().isVisible();
+        NotPL.waitUntilVisible().isDisplayed();
     }
 
 
@@ -1047,7 +1051,7 @@ public class PacientLKPage extends PageObject {
         BB5.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
     }
 
     public void enterAddBirthdayField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус7
@@ -1055,7 +1059,7 @@ public class PacientLKPage extends PageObject {
         BB7.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
     }
 
     public void clickNHematologicalStudies(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10
@@ -1063,7 +1067,7 @@ public class PacientLKPage extends PageObject {
         BB10.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
     }
 
     public void enterNewPacientEmailTField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10п
@@ -1071,7 +1075,7 @@ public class PacientLKPage extends PageObject {
         NewBB10p.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
     }
 
     public void clickNewPacientSaveButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10с
@@ -1079,7 +1083,7 @@ public class PacientLKPage extends PageObject {
         New2BB10c.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
     }
 
     public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5
@@ -1087,8 +1091,8 @@ public class PacientLKPage extends PageObject {
         DK5.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
-        ImageDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
+        ImageDK.waitUntilVisible().isDisplayed();
     }
 
     public void enterPasswordField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт10
@@ -1096,8 +1100,8 @@ public class PacientLKPage extends PageObject {
         DK10.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
-        ImageDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
+        ImageDK.waitUntilVisible().isDisplayed();
     }
 
     public void clickNewOrderButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт13
@@ -1105,7 +1109,7 @@ public class PacientLKPage extends PageObject {
         DK13.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NotPL.waitUntilVisible().isVisible();
+        NotPL.waitUntilVisible().isDisplayed();
     }
 
     public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
@@ -1113,8 +1117,8 @@ public class PacientLKPage extends PageObject {
         DK20.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
-        ImageDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
+        ImageDK.waitUntilVisible().isDisplayed();
     }
 
     public void clickAddSecondClinicalBloodTest(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт30
@@ -1122,14 +1126,14 @@ public class PacientLKPage extends PageObject {
         DK30.waitUntilClickable().click();
         //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isVisible();
-        ImageDK.waitUntilVisible().isVisible();
+        NominalDK.waitUntilVisible().isDisplayed();
+        ImageDK.waitUntilVisible().isDisplayed();
         loadDan.waitUntilNotVisible();
     }
 
     public void checkOrderedAnalyzesInBasketBlock(){
         ElementDinamika.waitUntilClickable().click();
-        ZagolovokDinam.waitUntilVisible().isVisible();
+        ZagolovokDinam.waitUntilVisible().isDisplayed();
     }
 
     public void verifyTotalText(){
@@ -1142,7 +1146,7 @@ public class PacientLKPage extends PageObject {
         ViborIssledovAll.click();
         InputOnePeriod.sendKeys("2018/10/01");
         InputToPeriod.sendKeys("2019/08/05");
-        tableDinamIsled.waitUntilVisible().isVisible();
+        tableDinamIsled.waitUntilVisible().isDisplayed();
     }
 
     public void clickChoosePacientOrderPage(){
@@ -1158,14 +1162,71 @@ public class PacientLKPage extends PageObject {
     }
 
     public void verifyCheckoutOrderText(){
-        tableDinamIsled.waitUntilVisible().isVisible();
+        tableDinamIsled.waitUntilVisible().isDisplayed();
     }
 
     public void verifyOrderListText(){
         TablElementObsh.click();
-        GrafikObshBel.isVisible();
-        TableDetalObshZak.isVisible();
+        GrafikObshBel.isDisplayed();
+        TableDetalObshZak.isDisplayed();
     }
+
+    public void scrollToUp() {
+        ((JavascriptExecutor) getDriver()).executeScript("window.scrollTo(0, 0)");
+    }
+
+    public void scrollToDown() {
+        ((JavascriptExecutor) getDriver()).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public String getLastDowloadedFile() {
+        WebDriver driver = getDriver();
+        String currentWindow = driver.getWindowHandle();
+        ((JavascriptExecutor) driver).executeScript("window.open();");
+        for (String tab : driver.getWindowHandles()) {
+            if (!tab.equals(currentWindow)) {
+                driver.switchTo().window(tab);
+                break;
+            }
+        }
+        driver.navigate().to("chrome://downloads/");
+        waitABit(2000);
+        String fileName = "";
+        int count = 0;
+        while (count < 3) {
+            try {
+                Object fileNameFromCromeDownloads = ((JavascriptExecutor) getDriver()).executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('downloads-item').shadowRoot.querySelector('#file-link').text");
+                fileName = fileNameFromCromeDownloads.toString();
+                break;
+            } catch (WebDriverException e) {
+                waitABit(60000);
+                getDriver().navigate().refresh();
+                waitABit(10000);
+                count++;
+            }
+        }
+//        if (count == 3) {
+//            Assert.fail("Файл не загрузился");
+//        }
+        driver.close();
+        driver.switchTo().window(currentWindow);
+        return (fileName);
+    }
+
+    public boolean CheckFileHasLoaded() {
+        waitABit(15000);
+        String fileName = getLastDowloadedFile();
+        System.out.println("fileName " + fileName);
+
+        try {
+            FileInputStream fis = new FileInputStream(new File("C:\\chrome\\" + fileName));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 
 
