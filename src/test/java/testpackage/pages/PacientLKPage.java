@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import testpackage.help.Help_Methods;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 
 public class PacientLKPage extends PageObject {
 
-    private static final Help_Methods help = Help_Methods.getInstance();
     public ArrayList<String> TheBoardValues = new ArrayList();
 
     private By AppCookie = By.xpath("//button[contains(@class,'attention-close-button')]");
@@ -648,8 +646,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visibleFallPodskazka(){
-        help.Verify_Text(FallPodskazka,"Ваши результаты анализов не найдены. Пожалуйста, измените параметры и повторите поиск");
-
+        Assertions.assertThat(FallPodskazka.getText()).isEqualTo("Ваши результаты анализов не найдены. Пожалуйста, измените параметры и повторите поиск");
     }
 
     public void clickZabilPassword(){
@@ -669,7 +666,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visinleMessagePasword(){
-        help.Verify_Text(MessagePasword,"Пароль успешно восстановлен!");
+        Assertions.assertThat(MessagePasword.getText()).isEqualTo("Пароль успешно восстановлен!");
     }
 
     public void clickButtonVostanovPasword(){
@@ -694,17 +691,17 @@ public class PacientLKPage extends PageObject {
     }
 
     public void enterLoginFieldAuthorization(String Login) { // Ввод Имени inv.loyal.1@gmail.com
-        help.Click_Method(LoginFieldAuthorization);
-        help.Enter_Text(LoginFieldAuthorization, Login);
+        LoginFieldAuthorization.click();
+        LoginFieldAuthorization.sendKeys(Login);
     }
 
     public void enterPasswordFieldAuthorization(String Password) { // Ввод пароля QazWsxEdc
-        help.Click_Method(PasswordFieldAuthorization);
-        help.Enter_Text(PasswordFieldAuthorization, Password);
+        PasswordFieldAuthorization.click();
+        PasswordFieldAuthorization.sendKeys(Password);
     }
 
     public void clickButtonInput(){
-        help.Click_Method(ButtonInput);
+        ButtonInput.click();
     }
 
     public void visibleTextLK(){
@@ -751,49 +748,48 @@ public class PacientLKPage extends PageObject {
 
 
     public void enterErrorLoginFieldAuthorization(String EmailFall, String PassFall) { // Ввод не корректного Email
-        help.Click_Method(LoginFieldAuthorization);
-        help.Enter_Text(LoginFieldAuthorization, EmailFall);//inv.loyal.1@gmailcom
-        help.getSlow();
-        help.Click_Method(PasswordFieldAuthorization);
-        help.Enter_Text(PasswordFieldAuthorization, PassFall);//QazWsxEdc
-        help.getSlow();
-        help.Click_Method(ButtonInput);
-        help.getSlow();
-        help.Verify_Text(ErrorLogPass,"логин не является корректным email или телефоном");
-
+        LoginFieldAuthorization.click();
+        LoginFieldAuthorization.sendKeys(EmailFall);//inv.loyal.1@gmailcom
+        waitABit(1000);
+        PasswordFieldAuthorization.click();
+        PasswordFieldAuthorization.sendKeys(PassFall);//QazWsxEdc
+        waitABit(1000);
+        ButtonInput.click();
+        waitABit(1000);
+        Assertions.assertThat(ErrorLogPass.getText()).isEqualTo("логин не является корректным email или телефоном");
     }
 
     public void enterErrorTelLoginFieldAuthorization(String TelFall, String PassFall) { // Ввод не корректного Телефона
-        help.Click_Method(LoginFieldAuthorization);
-        help.Enter_Text(LoginFieldAuthorization, TelFall);//+7987366427785
-        help.getSlow();
-        help.Click_Method(PasswordFieldAuthorization);
-        help.Enter_Text(PasswordFieldAuthorization, PassFall);//QazWsxEdc
-        help.getSlow();
-        help.Click_Method(ButtonInput);
-        help.getSlow();
-        help.Verify_Text(ErrorLogPass,"логин не является корректным email или телефоном");
+        LoginFieldAuthorization.click();
+        LoginFieldAuthorization.sendKeys(TelFall);//+7987366427785
+        waitABit(1000);
+        PasswordFieldAuthorization.click();
+        PasswordFieldAuthorization.sendKeys(PassFall);//QazWsxEdc
+        waitABit(1000);
+        ButtonInput.click();
+        waitABit(1000);
+        Assertions.assertThat(ErrorLogPass.getText()).isEqualTo("логин не является корректным email или телефоном");
     }
 
     public void enterFallPasswordFieldAuthorization() { // Ввод Неверного пароля
-        help.Click_Method(LoginFieldAuthorization);
-        help.Enter_Text(LoginFieldAuthorization, "inv.loyal.1@gmail.com");
-        help.Click_Method(PasswordFieldAuthorization);
-        help.Enter_Text(PasswordFieldAuthorization, "QazWsxEdc34532");
-        help.getSlow();
-        help.Click_Method(ButtonInput);
-        help.getSlow();
-        help.Verify_Text(ErrorLogPass,"неверный логин/пароль пользователя");
+        LoginFieldAuthorization.click();
+        LoginFieldAuthorization.sendKeys( "inv.loyal.1@gmail.com");
+        PasswordFieldAuthorization.click();
+        PasswordFieldAuthorization.sendKeys( "QazWsxEdc34532");
+        waitABit(1000);
+        ButtonInput.click();
+        waitABit(1000);
+        Assertions.assertThat(ErrorLogPass.getText()).isEqualTo("неверный логин/пароль пользователя");
     }
 
     public void enterFallLoginFieldAuthorization() { // Ввод Неверного Имени
-        help.Click_Method(LoginFieldAuthorization);
-        help.Enter_Text(LoginFieldAuthorization, "inv.loya32546l.1@gmail.com");
-        help.Click_Method(PasswordFieldAuthorization);
-        help.Enter_Text(PasswordFieldAuthorization, "QazWsxEdc");
-        help.Click_Method(ButtonInput);
-        help.getSlow();
-        help.Verify_Text(ErrorLogPass,"неверный логин/пароль пользователя");
+        LoginFieldAuthorization.click();
+        LoginFieldAuthorization.sendKeys( "inv.loya32546l.1@gmail.com");
+        PasswordFieldAuthorization.click();
+        PasswordFieldAuthorization.sendKeys( "QazWsxEdc");
+        ButtonInput.click();
+        waitABit(1000);
+        Assertions.assertThat(ErrorLogPass.getText()).isEqualTo("неверный логин/пароль пользователя");
     }
 
 
@@ -801,13 +797,13 @@ public class PacientLKPage extends PageObject {
 
 
     public void enterLoginTelFieldAuthorization() { // Ввод Имени
-        help.Click_Method(LoginFieldAuthorization);
-        help.Enter_Text(LoginFieldAuthorization, "+79873664277");
+        LoginFieldAuthorization.click();
+        LoginFieldAuthorization.sendKeys( "+79873664277");
     }
 
     public void enterPasswordTelFieldAuthorization() { // Ввод пароля
-        help.Click_Method(PasswordFieldAuthorization);
-        help.Enter_Text(PasswordFieldAuthorization, "123456");
+        PasswordFieldAuthorization.click();
+        PasswordFieldAuthorization.sendKeys( "123456");
     }
 
 
