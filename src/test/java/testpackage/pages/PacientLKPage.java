@@ -3,14 +3,17 @@ package testpackage.pages;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PacientLKPage extends PageObject {
 
@@ -118,8 +121,8 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "(//label[@class='medcard-update disabled-checkbox'])[1]")
     WebElementFacade ChecBoxDisabled;//Не активный чекбокс Автоматическое добавление всех результатов
 
-    @FindBy(xpath = "//div[@class='checkbox med_auto_update']/label")//Все активные чекбоксы Автоматическое добавление всех результатов
-            WebElementFacade FullChecBoxActived;
+    @FindBy (xpath = "//a[@id='header_logout_button']")
+    WebElementFacade exitLk;
 
     @FindBy(xpath = "//label[@for='add_orders_auto_8cf08a3b-c901-e911-80d5-00155d52d70b']")
     WebElementFacade ChecBoxActived;//Активный чекбокс Автоматическое добавление всех результатов
@@ -498,7 +501,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='preload__overlay']")
     WebElementFacade blockWindow;
 
-    @FindBy(xpath = "//div[@class='lk-dynamic-table__content']")
+    @FindBy(xpath = "//div[@id='dynamicList']")
     WebElementFacade tableDinamIsled;
 
     @FindBy(xpath = "//div[@id='headerAttention'][@class='attention--header open']")
@@ -516,12 +519,33 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='attention--header--list hidden']//div[@class='close-block']")
     WebElementFacade messageComand;
 
+    @FindBys({@FindBy(xpath = "//div[@class='lk-setting__nav lk-setting-nav']/a")})
+    List<WebElementFacade> listFullNamesBlock;
+
+    @FindBys({@FindBy(xpath = "//div[@class='header-nav']//a")})
+    List<WebElementFacade> listFullNameDerictores;
+
+    public void openDirectoriesName(String name) {
+        for (WebElementFacade medInfoRow : listFullNameDerictores) {
+            if (medInfoRow.getText().replaceAll("[\r\n]", " ").equals(name)) {
+                medInfoRow.waitUntilClickable().click();
+                return;
+            }
+        }
+        Assert.fail("На странице нет раздела " + name);
+    }
+
 
     //------------------------------------------------------------------------------------------
 
-
-    public void clickAddThirdClinicalBloodTest(){
-        ButtonSceting.waitUntilClickable().click();
+    public void listFullNamesBlock(String name) {
+        for (WebElementFacade medInfoRow : listFullNamesBlock) {
+            if (medInfoRow.getText().replaceAll("[\r\n]", " ").equals(name)) {
+                medInfoRow.waitUntilClickable().click();
+                return;
+            }
+        }
+        Assert.fail("На странице слева нет блока " + name);
     }
 
     public void clickAddFourthClinicalBloodTest(){
@@ -535,10 +559,14 @@ public class PacientLKPage extends PageObject {
     public void clickGoToBasketButton(){
         ElementSecurity.waitUntilClickable().click();
         BlockSecur.waitUntilVisible().isDisplayed();
-        OldPassword.sendKeys("a4AxPF3b");
-        NewPassword.sendKeys("a4AxPF3b");
+    }
+
+    public void clickGoToBasketButton(String one, String too){
+        BlockSecur.waitUntilVisible().isDisplayed();
+        OldPassword.sendKeys(one);
+        NewPassword.sendKeys(too);
         GlazPassword.waitUntilClickable().click();
-        New2Password.sendKeys("a4AxPF3b");
+        New2Password.sendKeys(too);
         ButtonSecurSave.waitUntilClickable().click();
         blockLoad.waitUntilNotVisible();
         Assertions.assertThat(PasswordPas.getText()).isEqualTo("Пароль успешно изменён");
@@ -546,11 +574,8 @@ public class PacientLKPage extends PageObject {
     }
 
     public void verifyBasketText(){
-        TextLK.waitUntilVisible().isDisplayed();
-        ElementHistory.click();
         TableHistory.waitUntilVisible().isDisplayed();
     }
-
 
     public void ClickYesMoskow(){
         if (messageComand.isDisplayed()){
@@ -572,6 +597,10 @@ public class PacientLKPage extends PageObject {
         ButtonLogin.waitUntilClickable().click();
     }
 
+    public void exitLk(){
+        exitLk.waitUntilClickable().click();
+    }
+
     public void clickResultat(){
         Resultat.waitUntilClickable().click();
     }
@@ -580,13 +609,13 @@ public class PacientLKPage extends PageObject {
         PopapResult.waitUntilVisible().isDisplayed();
     }
 
-    public void inputINZBornSurename(){
+    public void inputINZBornSurename(String INZ, String data, String family){
         InputINZ.waitUntilClickable().click();
-        InputINZ.sendKeys("900003942");
+        InputINZ.sendKeys(INZ);
         Born.click();
-        Born.sendKeys(" 04041986");
+        Born.sendKeys(data);
         Surename.click();
-        Surename.sendKeys("Иванов");
+        Surename.sendKeys(family);
     }
 
     public void clickFindSubmit(){
@@ -594,8 +623,8 @@ public class PacientLKPage extends PageObject {
         blockWindow.waitUntilNotVisible();
     }
 
-    public void visiblePodskazkaResult(){
-        Assertions.assertThat(PodskazkaResult.getText()).isEqualTo("Найдены результаты 1 анализов.");
+    public void visiblePodskazkaResult(String value){
+        Assertions.assertThat(PodskazkaResult.getText()).isEqualTo(value);
     }
 
 
@@ -632,8 +661,8 @@ public class PacientLKPage extends PageObject {
         blockWindow.waitUntilNotVisible();
     }
 
-    public void visiblePodskazkaSend(){
-        Assertions.assertThat(PodskazkaResult.getText()).isEqualTo("Документ отправлен на указанный E-mail.");
+    public void visiblePodskazkaSend(String value){
+        Assertions.assertThat(PodskazkaResult.getText()).isEqualTo(value);
     }
 
     public void inputFallINZBornSurename(){
@@ -1128,7 +1157,6 @@ public class PacientLKPage extends PageObject {
     }
 
     public void checkOrderedAnalyzesInBasketBlock(){
-        ElementDinamika.waitUntilClickable().click();
         ZagolovokDinam.waitUntilVisible().isDisplayed();
     }
 

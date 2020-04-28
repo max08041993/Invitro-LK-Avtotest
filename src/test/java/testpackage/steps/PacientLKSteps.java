@@ -22,14 +22,14 @@ public class PacientLKSteps {
     AssertionSteps assertionSteps;
 
 
-    @Given("^Открыть страницу по адресу (.*)$")
+    @Given("^Открываю главную страницу сайта (.*)$")
     public void open_page(String server) {
         String url = String.format(urlPattern,server);
         page.setDefaultBaseUrl(url);
         page.open();
     }
 
-    @When("Проверить что выбрана Москва кликнуть Да верно")
+    @When("Проверяю что выбрана Москва и убраны все всплывающие окна")
     public void ClickYesMoskow(){
         page.ClickYesMoskow();
     }
@@ -39,14 +39,14 @@ public class PacientLKSteps {
         page.clickResultat();
     }
 
-    @When ("Проверить отображения попапа просмотра результатов")
+    @When ("Проверяю отображение попапа просмотра результатов")
     public void visiblePopapResult() {
         page.visiblePopapResult();
     }
 
-    @When ("Ввод Кода ИНЗ Дата рождения Фамилия")
-    public void inputINZBornSurename() {
-        page.inputINZBornSurename();
+    @When ("Ввожу Код ИНЗ (.*) Дату рождения (.*) и Фамилию (.*)")
+    public void inputINZBornSurename(String INZ, String data, String family) {
+        page.inputINZBornSurename(INZ,data,family);
     }
 
     @When ("Нажать найти результаты")
@@ -54,12 +54,12 @@ public class PacientLKSteps {
         page.clickFindSubmit();
     }
 
-    @When ("Проверка отображения подсказки Найдены результаты 1 анализов")
-    public void visiblePodskazkaResult() {
-        page.visiblePodskazkaResult();
+    @When ("Проверяю отображение подсказки (.*)")
+    public void visiblePodskazkaResult(String value) {
+        page.visiblePodskazkaResult(value);
     }
 
-    @When ("Проверка выбора способа получения результата")
+    @When ("Проверяю выбор способа получения результата")
     public void visibleRadioEmailDownload() {
         page.visibleRadioEmailDownload();
     }
@@ -69,7 +69,7 @@ public class PacientLKSteps {
         page.visiblePovtorPoisk();
     }
 
-    @When ("Нажать Скачать")
+    @When ("Скачиваю результат")
     public void clickButtonFind() {
         page.clickButtonFind();
     }
@@ -94,9 +94,9 @@ public class PacientLKSteps {
         page.clickButtonSend();
     }
 
-    @When("Проверить сообщение об успешной отправке результата по Email")
-    public void visiblePodskazkaSend(){
-        page.visiblePodskazkaSend();
+    @When("Проверяю появление сообщения (.*)")
+    public void visiblePodskazkaSend(String value){
+        page.visiblePodskazkaSend(value);
     }
 
     @When("Ввод неверных данных Кода ИНЗ Дата рождения Фамилия")
@@ -114,6 +114,11 @@ public class PacientLKSteps {
     @When ("Кликнуть по кнопке Вход в кабинет пациента")
     public void clickButtonLogin() {
         page.clickButtonLogin();
+    }
+
+    @When("Выхожу из ЛК")
+            public void exitLk(){
+        page.exitLk();
     }
 
     @When("^Ввести логин (.*) и пароль (.*) для входа$")
@@ -387,9 +392,14 @@ public class PacientLKSteps {
 
     //--------------------Проверка Настройки---------------
 
-    @When("Переход в Настройки" )
-    public void сlickAddThirdClinicalBloodTest() {
-        page.clickAddThirdClinicalBloodTest();
+    @When("Открываю страницу (.*)" )
+    public void openDirectoriesName(String value) {
+        page.openDirectoriesName(value);
+    }
+
+    @When("Открываю блок (.*)")
+    public void openlistFullNamesBlock(String value){
+        page.listFullNamesBlock(value);
     }
 
     @When("Проверка Личных данных пациента" )
@@ -397,19 +407,19 @@ public class PacientLKSteps {
         page.clickAddFourthClinicalBloodTest();
     }
 
-    @When("Переход в Безопасность и смена пароля" )
-    public void сlickGoToBasketButton() {
-        page.clickGoToBasketButton();
+    @When("Меняю пароль от входа в ЛК с (.*) на (.*)" )
+    public void сlickGoToBasketButton(String one, String too) {
+        page.clickGoToBasketButton(one,too);
     }
 
-    @When("Переход в Историю посещений и проверка таблицы" )
+    @Then("Проверяю отображение таблицы истории посещения" )
     public void verifyBasketText() {
         page.verifyBasketText();
     }
 
     // Проверка Динамики
 
-    @When("Переход в Динамику и проверка отображение страницы" )
+    @When("Проверка отображение страницы ДИНАМИКА" )
     public void checkOrderedAnalyzesInBasketBlock() {
         page.checkOrderedAnalyzesInBasketBlock();
     }
@@ -417,10 +427,9 @@ public class PacientLKSteps {
     @When("Применение фильтра по периоду и Исследования" )
     public void verifyTotalText() {
         page.verifyTotalText();
-        //page.verify2TotalText();
     }
 
-    @When("Проверка возможности скачать Динамику" )
+    @When("Проверяю возможность скачать Динамику" )
     public void clickChoosePacientOrderPage() { page.clickChoosePacientOrderPage(); }
 
     @When("Проверка возможности отправки Динамики на email" )
