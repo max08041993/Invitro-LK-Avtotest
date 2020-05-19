@@ -578,7 +578,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void ClickYesMoskow(){
-        if (messageComand.isDisplayed()){
+        if (messageComand.isVisible() && messageComand.isDisplayed()){
             messageComand.click();
         }
         if (find(Moscow).getText().equals("Москва"))
