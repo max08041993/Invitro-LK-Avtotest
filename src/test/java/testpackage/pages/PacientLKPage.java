@@ -624,6 +624,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visiblePodskazkaResult(String value){
+        waitABit(1000);
         Assertions.assertThat(PodskazkaResult.getText()).isEqualTo(value);
     }
 
@@ -662,6 +663,7 @@ public class PacientLKPage extends PageObject {
     }
 
     public void visiblePodskazkaSend(String value){
+        waitABit(1500);
         Assertions.assertThat(PodskazkaResult.getText()).isEqualTo(value);
     }
 
