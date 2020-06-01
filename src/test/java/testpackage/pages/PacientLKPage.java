@@ -327,7 +327,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='h3']")// Текст Спасибо! Ваш ответ принят.
             WebElementFacade MessagePosEmail;
 
-    @FindBy(xpath = "(//td[@class='fixed-side'][contains(text(),'Эритроциты')])[2]")//Элемент Общий анализ крови в таблице динамики
+    @FindBy(xpath = "(//td[@class='fixed-side']/span[contains(text(),'Эритроциты')]/following::span[1])[1]")//Элемент Общий анализ крови в таблице динамики
             WebElementFacade TablElementObsh;   /////------------------При клике Можно применить для перехода к диаграме Общего белка
 
     @FindBy(xpath = "//canvas[@class='flot-overlay']")//Проверить что Строится график при переходе на конкретное исследование
@@ -1171,7 +1171,7 @@ public class PacientLKPage extends PageObject {
         ViborIssledov.click();
         ViborIssledovAll.click();
         InputOnePeriod.sendKeys("2018/10/01");
-        InputToPeriod.sendKeys("2019/08/05");
+        InputToPeriod.sendKeys("2020/04/05");
         tableDinamIsled.waitUntilVisible().isDisplayed();
     }
 
