@@ -324,7 +324,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//button[@class='btn btn-popup-close']")//Кнопка продолжиьть после отправки Емаил
             WebElementFacade ButtonProdolDinam;
 
-    @FindBy(xpath = "//div[@class='h3']")// Текст Спасибо! Ваш ответ принят.
+    @FindBy(xpath = "//div[@id='popupThanks']/div")// Текст Спасибо! Письмо отправлено.
             WebElementFacade MessagePosEmail;
 
     @FindBy(xpath = "(//td[@class='fixed-side']/span[contains(text(),'Эритроциты')]/following::span[1])[1]")//Элемент Общий анализ крови в таблице динамики
