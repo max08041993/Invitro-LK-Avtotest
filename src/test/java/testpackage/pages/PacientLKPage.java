@@ -577,6 +577,9 @@ public class PacientLKPage extends PageObject {
         TableHistory.waitUntilVisible().isDisplayed();
     }
 
+    @FindBy(xpath = "//div[@class='attention--header--block--desktop']//div[@class='close-block']/*")
+    WebElementFacade closeAttention;
+
     public void ClickYesMoskow(){
         if (messageComand.isVisible() && messageComand.isDisplayed()){
             messageComand.click();
@@ -591,6 +594,9 @@ public class PacientLKPage extends PageObject {
             ChangeYesOk.waitUntilClickable().click();
         }
         Prinyat.waitUntilClickable().click();
+        if (closeAttention.isVisible()){
+            closeAttention.click();
+        }
     }
 
     public void clickButtonLogin(){
