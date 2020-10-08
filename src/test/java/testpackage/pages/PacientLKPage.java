@@ -12,14 +12,9 @@ import org.openqa.selenium.support.FindBys;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PacientLKPage extends PageObject {
-
-    public ArrayList<String> TheBoardValues = new ArrayList();
-
-    private By AppCookie = By.xpath("//button[contains(@class,'attention-close-button')]");
 
     //19.06.2019
 
@@ -147,9 +142,6 @@ public class PacientLKPage extends PageObject {
 
     //------------------------- Проверка Настройки-------------------------
 
-    @FindBy(xpath = "//a[contains(text(),'НАСТРОЙКИ')]")//Ссылка на настройки
-            WebElementFacade ButtonSceting;
-
     @FindBy(xpath = "//input[@id='name']")//Поле ввода Имени
             WebElementFacade InputScetName;
 
@@ -163,9 +155,6 @@ public class PacientLKPage extends PageObject {
             WebElementFacade ButtonScetSave;
 
 //безопасность
-
-    @FindBy(xpath = "//a[text()='Безопасность']")//Вкладка Безопасность
-            WebElementFacade ElementSecurity;
 
     @FindBy(xpath = "//input[@name='password']")//Поле ввода старого пароля QazWsxEdc
             WebElementFacade OldPassword;
@@ -193,9 +182,6 @@ public class PacientLKPage extends PageObject {
 
     //История посещений
 
-    @FindBy(xpath = "//a[@href='/personal/history/']")//Вкладка История посещения
-            WebElementFacade ElementHistory;
-
     @FindBy(xpath = "//div[@class='lk-setting__history analysis-table analysis-table--no-padding-left a']")//Таблица Истории посещений
             WebElementFacade TableHistory;
 
@@ -212,7 +198,8 @@ public class PacientLKPage extends PageObject {
     @FindBy (xpath = "//div[@class='change-city-wrapper__left']//a[@class='change-city-block__item bold'][contains(text(),'Москва')]") //надпись крупные города Москва
             WebElementFacade BigCityMoscow;
 
-    private By Moscow = By.xpath("//span[@class='city__name city__btn city__name--label']");
+    @FindBy(xpath="//span[@class='city__name city__btn city__name--label']")
+    WebElementFacade moskow;
 
     @FindBy (xpath = "//button[@class='header-nav__get-result popupBtn']")
     WebElementFacade Resultat;
@@ -250,9 +237,6 @@ public class PacientLKPage extends PageObject {
     @FindBy (xpath = "//button[@title='Close (Esc)']")
     WebElementFacade Close;
 
-    @FindBy (xpath = "//input[@id='emailSend']")
-    WebElementFacade InputEmail1;
-
     @FindBy (xpath = "//button[@id='getEmailAnalysisBtn']")
     WebElementFacade ButtonSend;
 
@@ -265,12 +249,6 @@ public class PacientLKPage extends PageObject {
     @FindBy (xpath = "//a[@class='autorisation__link-forgot link forgetPass autorisation__link-passforgot'][contains(text(),'Забыли')]")//Забыли пароль
     WebElementFacade ZabilPassword;
 
-    @FindBy(xpath = "//input[@id='loginForgot']")
-    WebElementFacade InputEmailOrTel;
-
-    @FindBy(xpath = "//input[@id='passwordForgotEmail']")//Поле ввода нового пароля
-    WebElementFacade NewPassword1;
-
     @FindBy(xpath = "//input[@id='repareLogin']")
     WebElementFacade ButtonVostanovleniyaPasword;
 
@@ -281,12 +259,6 @@ public class PacientLKPage extends PageObject {
     WebElementFacade ButtonVostanovPasword;
 
     //-------------------------------Проверка Динамики-------------
-
-    @FindBy(xpath = "//a[contains(text(),'ДИНАМИКА')]")//Вкладка Динамика
-            WebElementFacade ElementDinamika;
-
-    @FindBy(xpath = "//div[@class='box-empty__msg']")//Сообщение У вас еще нет результатов или они еще не готовы в Динамике
-            WebElementFacade NotRezult;
 
     @FindBy(xpath = "//h1")//Заголовок Динамика результатов
             WebElementFacade ZagolovokDinam;
@@ -302,12 +274,6 @@ public class PacientLKPage extends PageObject {
 
     @FindBy(xpath = "//button[@class='select-all']")//Чекбокс Выбрать Все
             WebElementFacade ViborIssledovAll;
-
-    @FindBy(xpath = "//div[@id='dynamic-list']//label[contains(text(),'Общий белок')]")//"//ul[@class='options']")//Чекбокс Общий белок
-            WebElementFacade ViborIssledovObsh;
-
-    @FindBy(xpath = "//p[@class='btnOk']")//Кнопка ОК при выборе Исследования
-            WebElementFacade BootnOkDinam;
 
     @FindBy(xpath = "//a[@class='list-order__action']")//Скачать
             WebElementFacade SaveDinam;
@@ -336,22 +302,22 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@id='detail-table']")//Таблица Деталей Общего белка
             WebElementFacade TableDetalObshZak;
 
-    @FindBy(xpath = "(//button[@class='list-order__edit'])[2]")
+    @FindBy(xpath = "//button[@class='list-order__edit']")
     WebElementFacade PencilLK000432080;//Карандаш для переименования
 
-    @FindBy(xpath = "//input[@placeholder='LK000432080']")
+    @FindBy(xpath = "//input[@placeholder='LK001057389']")
     WebElementFacade InputLK000432080;//поле переименования заказа
 
-    @FindBy(xpath = "//input[@placeholder='LK000432080']/../button[@class='list-order__send sender_alias']")
+    @FindBy(xpath = "//input[@placeholder='LK001057389']/../button[@class='list-order__send sender_alias']")
     WebElementFacade ButtonPrinyatIzmeneniyaLK000432080;//Кнопка применить
 
-    @FindBy(xpath = "//input[@placeholder='LK000432080']/../button[@class='list-order__cansel']")
+    @FindBy(xpath = "//input[@placeholder='LK001057389']/../button[@class='list-order__cansel']")
     WebElementFacade ButtonCancelIzmeneniyaLK00043208;//Кнопка отмена
 
     @FindBy(xpath = "//h2[@class='list-order__title'][contains(text(),'Avtotest')]")
     WebElementFacade NameAvtotest;//Переименованый заказ Avtotest
 
-    @FindBy(xpath = "//h2[@class='list-order__title'][contains(text(),'LK000432080')]")
+    @FindBy(xpath = "//h2[@class='list-order__title'][contains(text(),'LK001057389')]")
     WebElementFacade NameLK000432080;//Переименованый заказ Avtotest
 
     // Локаторы ЛК
@@ -394,9 +360,6 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//button[@class='btn ripple'][contains(text(),'Отправить')]")
     WebElementFacade SendOtpravitLK;
 
-    @FindBy(xpath = "//div[@class='conteiner inner']")
-    WebElementFacade ZakazyAktiv;
-
     @FindBy(xpath = "//div[@class='list-order__item list-order__item--on-result showDetailInzInfo showDetailInzInfoClicker doneOrder']//h2")
     WebElementFacade OpenZakaz;
 
@@ -405,9 +368,6 @@ public class PacientLKPage extends PageObject {
 
     @FindBy(xpath = "(//span[@class='attention__acc show_error'])[1]")
     WebElementFacade ErrorLogPass;
-
-    @FindBy(xpath = "//button[@class='list-order__action list-order__action--download dwnlod']")
-    WebElementFacade DonloadRez;
 
     @FindBy(xpath = "//input[@class='search__input']")
     WebElementFacade InputINZAndNameTest;//Поле ввода ИНЗ и Артиклу
@@ -447,9 +407,6 @@ public class PacientLKPage extends PageObject {
     @FindBy (xpath = "(//div[@class='ss__select'])[2]")
     WebElementFacade StatusFiltr;//Выпадающее меню Статус заказа:
 
-    @FindBy (xpath = "//li[@class='ss__item'][contains(text(),'Черновик заказа')]")
-    WebElementFacade StatusdOne;//Выбор Статус заказа: Черновик заказа
-
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Выполненный заказ (с результатами)')]")
     WebElementFacade StatusSecond;//Выбор Статус заказа: Выполненный заказ (с результатами)
 
@@ -462,16 +419,16 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Все')]")
     WebElementFacade StatusAll;//Выбор Статус заказа: Все
 
-    @FindBy(xpath = "//h2[contains(text(),'LK000432080')]")
+    @FindBy(xpath = "//h2[contains(text(),'LK001057389')]")
     WebElementFacade LK000432080;//Заказ LK000432080
 
-    @FindBy(xpath = "(//button[@class='list-order__action tablet-hide printer'])[2]")
+    @FindBy(xpath = "//button[@class='list-order__action tablet-hide printer']")
     WebElementFacade PrintLK000432080;//Кнопка Распечатать
 
-    @FindBy(xpath = "(//button[@class='list-order__action repiter'])[2]")
+    @FindBy(xpath = "//button[@class='list-order__action repiter']")
     WebElementFacade ReplayLK000432080;//Кнгопка Повторить
 
-    @FindBy(xpath = "(//button[@class='list-order__action cansler'])[2]")
+    @FindBy(xpath = "//button[@class='list-order__action cansler']")
     WebElementFacade CancelLK000432080;//Кнопка Отменить
 
     @FindBy(xpath = "//div[@class='attention--header--button']")
@@ -486,7 +443,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='girl']")
     WebElementFacade GirlImage;//отображение старого ЛК
 
-    @FindBy(xpath = "(//a[@class='list-order__fill-link to-detail'])[2]")
+    @FindBy(xpath = "//a[@class='list-order__fill-link to-detail']")
     WebElementFacade ZakazAvtotest0;//Заказ Avtotest (LK000432080)
 
     @FindBy(xpath = "//h2[@class='list-order__title list-order__title--inner']")
@@ -494,9 +451,6 @@ public class PacientLKPage extends PageObject {
 
     @FindBy(xpath = "//a[@class='back-link']//*[contains(text(),'Назад к списку заказов')]")
     WebElementFacade ButtonNazad;
-
-    @FindBy(xpath = "//div[@class='input__icon-wrap input__icon-wrap--calendar']")
-    WebElementFacade Inputcalendar;
 
     @FindBy(xpath = "//div[@class='preload__overlay']")
     WebElementFacade blockWindow;
@@ -509,9 +463,6 @@ public class PacientLKPage extends PageObject {
 
     @FindBy(xpath = "//div[@class='box-empty__msg']")
     WebElementFacade loadDan;
-
-    @FindBy(xpath = "//h1[contains(text(),'Программа «ИНВИТРО Здоровый плюс»')]")
-    WebElementFacade titleBlockBB;
 
     @FindBy(xpath = "//*[text()='Загрузка...']")
     WebElementFacade blockLoad;
@@ -555,12 +506,6 @@ public class PacientLKPage extends PageObject {
         ButtonScetSave.waitUntilVisible().isDisplayed();
     }
 
-
-    public void clickGoToBasketButton(){
-        ElementSecurity.waitUntilClickable().click();
-        BlockSecur.waitUntilVisible().isDisplayed();
-    }
-
     public void clickGoToBasketButton(String one, String too){
         BlockSecur.waitUntilVisible().isDisplayed();
         OldPassword.sendKeys(one);
@@ -584,7 +529,7 @@ public class PacientLKPage extends PageObject {
         if (messageComand.isVisible() && messageComand.isDisplayed()){
             messageComand.click();
         }
-        if (find(Moscow).getText().equals("Москва"))
+        if (moskow.getText().equals("Москва"))
         {
             ChangeYesOk.waitUntilClickable().click();
         }
@@ -690,10 +635,6 @@ public class PacientLKPage extends PageObject {
         ZabilPassword.waitUntilClickable().click();
     }
 
-    public void inputInputEmailOrTel(){
-        InputEmailOrTel.waitUntilVisible().sendKeys("pacient.lk5.invitro@yandex.ru");
-    }
-
     public void inputNewPassword(){
         NewPassword.waitUntilVisible().sendKeys("12345");
     }
@@ -708,7 +649,6 @@ public class PacientLKPage extends PageObject {
 
     public void clickButtonVostanovPasword(){
         ButtonVostanovPasword.waitUntilClickable().click();
-//        ButtonVostanovleniyaPasword.isDisplayed();
     }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -750,10 +690,15 @@ public class PacientLKPage extends PageObject {
     }
 
     public void clickChooseMedCart() { //Кликнуть, Выбрать мед карту
+        waitABit(300);
+        ViborMedKart.isDisplayed();
         ViborMedKart.click();
-        TestovyBonus7.waitUntilClickable().click();
+        waitABit(300);
+        TestovyBonus7.isDisplayed();
+        TestovyBonus7.click();
         TestovyBonus7.waitUntilNotVisible();
         loadDan.waitUntilNotVisible();
+        waitABit(1500);
     }
 
     public void clickINZ904160861(){
@@ -849,24 +794,29 @@ public class PacientLKPage extends PageObject {
 
 
     public void sendINZ(String Namber){
+        InputINZAndNameTest.isDisplayed();
+        InputINZAndNameTest.click();
         InputINZAndNameTest.sendKeys(Namber);
         waitABit(1000);
     }
 
     public void sendSearch(){
+        waitABit(1000);
         Search.click();
+        waitABit(1000);
     }
 
-    public void visibleINZ904160861(){
-        Assertions.assertThat(ZakazOt21Fev.getText()).isEqualTo("LK001057389");
+    public boolean visibleINZ904160861(){
+        ZakazOt21Fev.waitUntilVisible();
+        return ZakazOt21Fev.getText().equals("LK001057389");
     }
 
     public void sendResetFiltr(){
         ButtonResetFilter.click();
     }
 
-    public void sendArt1515(){
-        InputINZAndNameTest.sendKeys("1515");
+    public void sendArt1515(String var){
+        InputINZAndNameTest.sendKeys(var);
     }
 
     public void visibleArt1515(){
@@ -910,14 +860,6 @@ public class PacientLKPage extends PageObject {
         TableResultFiltr.waitUntilVisible().isDisplayed();
     }
 
-    public void StatusdOne(){
-        StatusFiltr.click();
-        waitABit(1000);
-        StatusdOne.waitUntilClickable().click();
-        waitABit(1000);
-        TableResultFiltr.waitUntilVisible().isDisplayed();
-    }
-
     public void StatusSecond(){
         StatusFiltr.click();
         waitABit(1000);
@@ -955,11 +897,11 @@ public class PacientLKPage extends PageObject {
 
 
 
-    public void MoveToElementLK000432080(){    //Наведение мыши на LK000432080 и проверка кнопок
+    public void MoveToElementLK000432080(){    //Наведение мыши на LK001057389 и проверка кнопок
         Actions actions = new Actions(getDriver());
         actions.moveToElement(LK000432080).build().perform();
         waitABit(1000);
-        PrintLK000432080.waitUntilVisible().isDisplayed();
+        PrintLK000432080.isDisplayed();
         ReplayLK000432080.isDisplayed();
         CancelLK000432080.isDisplayed();
     }
@@ -971,8 +913,6 @@ public class PacientLKPage extends PageObject {
 
     public void NameAvtotest(){
         PencilLK000432080.click();//Нажать карандаш
-//        Actions actions = new Actions(getDriver());
-//        actions.doubleClick(InputLK000432080).build().perform();//Двойной клик по полю ввода
         InputLK000432080.clear();
         InputLK000432080.sendKeys("Avtotest");//Ввести Avtotest
         ButtonCancelIzmeneniyaLK00043208.isDisplayed();//Проверить видимость кнопки Отмена
@@ -983,14 +923,12 @@ public class PacientLKPage extends PageObject {
 
     public void NameLK000432080(){
         PencilLK000432080.click();//Нажать карандаш
-//        Actions actions = new Actions(getDriver());
-//        actions.doubleClick(InputLK000432080).build().perform();//Двойной клик по полю ввода
         InputLK000432080.clear();
-        InputLK000432080.sendKeys("LK000432080");//Ввести Avtotest
+        InputLK000432080.sendKeys("LK001057389");//Ввести Avtotest
         ButtonCancelIzmeneniyaLK00043208.isDisplayed();//Проверить видимость кнопки Отмена
         ButtonPrinyatIzmeneniyaLK000432080.click();//Нажать применить
         blockWindow.waitUntilNotVisible();
-        Assertions.assertThat(NameLK000432080.getText()).isEqualTo("LK000432080");//Проверить, что название изменилось
+        Assertions.assertThat(NameLK000432080.getText()).isEqualTo("LK001057389");//Проверить, что название изменилось
     }
 
 
@@ -1005,7 +943,7 @@ public class PacientLKPage extends PageObject {
 
     public void SendAvtotest(){
         ZakazAvtotest0.click();
-        Assertions.assertThat(NameZakzPosleIzm.getText()).isEqualTo("Заказ от 18.06.2019 №LK000432080");
+        Assertions.assertThat(NameZakzPosleIzm.getText()).isEqualTo("Заказ от 20.02.2020 №LK001057389");
         ButtonNazad.click();
     }
 
@@ -1031,7 +969,7 @@ public class PacientLKPage extends PageObject {
 
     public void clickAddNewMedCartPacient(){
         ZagolovokMeskarty.waitUntilVisible().isDisplayed();
-        MedkartList.waitUntilVisible().isDisplayed();;//Прверка успешного перехода и отображения Медкарт
+        MedkartList.waitUntilVisible().isDisplayed();//Прверка успешного перехода и отображения Медкарт
     }
 
     //Проверка отображения и функционала Автоматического добавления всех результатов
@@ -1069,7 +1007,6 @@ public class PacientLKPage extends PageObject {
 
     public void enterAddNameField(){
         ProgrammaInvitroZdorPlus.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
     }
 
@@ -1082,7 +1019,6 @@ public class PacientLKPage extends PageObject {
     public void enterAddPhoneField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус5
         ViborMedKart.waitUntilClickable().click();
         BB5.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
     }
@@ -1090,7 +1026,6 @@ public class PacientLKPage extends PageObject {
     public void enterAddBirthdayField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус7
         ViborMedKart.waitUntilClickable().click();
         BB7.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
     }
@@ -1098,7 +1033,6 @@ public class PacientLKPage extends PageObject {
     public void clickNHematologicalStudies(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10
         ViborMedKart.waitUntilClickable().click();
         BB10.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
     }
@@ -1106,7 +1040,6 @@ public class PacientLKPage extends PageObject {
     public void enterNewPacientEmailTField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10п
         ViborMedKart.waitUntilClickable().click();
         NewBB10p.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
     }
@@ -1114,7 +1047,6 @@ public class PacientLKPage extends PageObject {
     public void clickNewPacientSaveButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10с
         ViborMedKart.waitUntilClickable().click();
         New2BB10c.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
     }
@@ -1122,7 +1054,6 @@ public class PacientLKPage extends PageObject {
     public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5
         ViborMedKart.waitUntilClickable().click();
         DK5.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
         ImageDK.waitUntilVisible().isDisplayed();
@@ -1131,7 +1062,6 @@ public class PacientLKPage extends PageObject {
     public void enterPasswordField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт10
         ViborMedKart.waitUntilClickable().click();
         DK10.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
         ImageDK.waitUntilVisible().isDisplayed();
@@ -1140,7 +1070,6 @@ public class PacientLKPage extends PageObject {
     public void clickNewOrderButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт13
         ViborMedKart.waitUntilClickable().click();
         DK13.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NotPL.waitUntilVisible().isDisplayed();
     }
@@ -1148,7 +1077,6 @@ public class PacientLKPage extends PageObject {
     public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
         ViborMedKart.waitUntilClickable().click();
         DK20.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
         ImageDK.waitUntilVisible().isDisplayed();
@@ -1157,7 +1085,6 @@ public class PacientLKPage extends PageObject {
     public void clickAddSecondClinicalBloodTest(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт30
         ViborMedKart.waitUntilClickable().click();
         DK30.waitUntilClickable().click();
-        //     loadDan.waitUntilVisible();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
         ImageDK.waitUntilVisible().isDisplayed();
@@ -1237,9 +1164,6 @@ public class PacientLKPage extends PageObject {
                 count++;
             }
         }
-//        if (count == 3) {
-//            Assert.fail("Файл не загрузился");
-//        }
         driver.close();
         driver.switchTo().window(currentWindow);
         return (fileName);
@@ -1248,8 +1172,6 @@ public class PacientLKPage extends PageObject {
     public boolean CheckFileHasLoaded() {
         waitABit(15000);
         String fileName = getLastDowloadedFile();
-        System.out.println("fileName " + fileName);
-
         try {
             FileInputStream fis = new FileInputStream(new File("C:\\chrome\\" + fileName));
             return true;

@@ -237,15 +237,15 @@ public class PacientLKSteps {
 
     @When("Проверка поиска по ИНЗ (.*)")
     public void SearchINZ904160861(String Namber){
-        page.sendINZ(Namber);//ввод ИНЗ 3591439335162
+        page.sendINZ(Namber);//ввод ИНЗ LK001057389
         page.sendSearch();//Кнопка поиска
-        page.visibleINZ904160861();//Заголовок
-        page.sendResetFiltr();//Сброс фильтра
+        assertionSteps.softAssertIsTrue("Заголовок не отобразился",page.visibleINZ904160861());//Заголовок
     }
 
-    @When("Проверка поиска по Артикилу 1515")
-    public void Art1515(){
-        page.sendArt1515();//ввод Артикула
+    @When("Проверка поиска по Артикилу (.*)")
+    public void Art1515(String var){
+        page.sendResetFiltr();//Сброс фильтра
+        page.sendArt1515(var);//ввод Артикула
         page.sendSearch();//Кнопка поиска
         page.visibleArt1515();//Состав 1515
         page.sendResetFiltr();//Сброс фильтра
@@ -265,12 +265,12 @@ public class PacientLKSteps {
         page.StatusAll();//Выбрать Все и проверить отображение
     }
 
-    @When("Найти заказ LK000432080 и переимовать его в Avtotest")
+    @When("Найти заказ LK001057389 и переимовать его в Avtotest")
     public void ChangeLK000432080(){
         page.NameAvtotest();
     }
 
-    @When("Перейти в заказ LK000432080 и проверить что заголовок не изменился")
+    @When("Перейти в заказ LK001057389 и проверить что заголовок не изменился")
     public void SendAvtotest(){
         page.SendAvtotest();
         //Найти заказ LK000432080 Нажать карандаш двойной клик на этом поле, переименовать его в Avtotest и нажать галочку
@@ -281,7 +281,7 @@ public class PacientLKSteps {
         //Проверить что название LK000432080
     }
 
-    @When("Найти заказ Avtotest и переимовать его в LK000432080")
+    @When("Найти заказ Avtotest и переимовать его в LK001057389")
     public void ChangeAvtotest(){
         page.NameLK000432080();
         //
