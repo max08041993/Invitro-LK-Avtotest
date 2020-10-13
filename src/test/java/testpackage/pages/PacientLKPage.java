@@ -189,7 +189,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//a[@class='btn btn--narrow btn--empty city__change-btn']")//Выбрать другой
             WebElementFacade ChengeOtherCity;
 
-    @FindBy (xpath = "//button[@class='attention-close-button btn-icon btn-icon--fill']")
+    @FindBy (xpath = "//button[@data-id='cookie']")
     WebElementFacade Prinyat;
 
     @FindBy (xpath = "//button[@class='btn btn--narrow city__confirm-btn']") //Да верно
@@ -467,7 +467,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//*[text()='Загрузка...']")
     WebElementFacade blockLoad;
 
-    @FindBy(xpath = "//div[@class='attention--header--list hidden']//div[@class='close-block']")
+    @FindBy(xpath = "(//div[@class='attention--header--list hidden']//div[@class='close-block'])[2]")
     WebElementFacade messageComand;
 
     @FindBys({@FindBy(xpath = "//div[@class='lk-setting__nav lk-setting-nav']/a")})
