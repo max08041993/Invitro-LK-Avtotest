@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBys;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class PacientLKPage extends PageObject {
@@ -419,7 +420,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//li[@class='ss__item'][contains(text(),'Все')]")
     WebElementFacade StatusAll;//Выбор Статус заказа: Все
 
-    @FindBy(xpath = "//h2[contains(text(),'LK001057389')]")
+    @FindBy(xpath = "//h2[@class='list-order__title']")
     WebElementFacade LK000432080;//Заказ LK000432080
 
     @FindBy(xpath = "//button[@class='list-order__action tablet-hide printer']")
@@ -658,13 +659,17 @@ public class PacientLKPage extends PageObject {
     // Авторизация
 
 
-    public void sendLogandPass(String login, String password) {
+    public boolean sendLogandPass(String login, String password) {
         LoginFieldAuthorization.waitUntilClickable().click();
         LoginFieldAuthorization.type(login);
         LoginFieldAuthorization.waitUntilClickable().click();
         PasswordFieldAuthorization.type(password);
         ButtonInput.waitUntilClickable().click();
-        blockWindow.waitUntilNotVisible();
+        LocalDateTime startTime = LocalDateTime.now();
+        while (isDisplayed(blockWindow) && startTime.plusMinutes(3).isAfter(LocalDateTime.now())){
+            waitABit(300);
+        }
+        return !isDisplayed(blockWindow) || !isDisplayed(ButtonInput);
     }
 
     public void enterLoginFieldAuthorization(String Login) { // Ввод Имени inv.loyal.1@gmail.com
@@ -916,6 +921,7 @@ public class PacientLKPage extends PageObject {
         InputLK000432080.clear();
         InputLK000432080.sendKeys("Avtotest");//Ввести Avtotest
         ButtonCancelIzmeneniyaLK00043208.isDisplayed();//Проверить видимость кнопки Отмена
+        waitABit(1000);
         ButtonPrinyatIzmeneniyaLK000432080.click();//Нажать применить
         blockWindow.waitUntilNotVisible();
         Assertions.assertThat(NameAvtotest.getText()).isEqualTo("Avtotest");//Проверить, что название изменилось
@@ -1007,7 +1013,10 @@ public class PacientLKPage extends PageObject {
 
     public void enterAddNameField(){
         ProgrammaInvitroZdorPlus.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
+        LocalDateTime startTime = LocalDateTime.now();
+        while (isDisplayed(loadDan) && startTime.plusMinutes(3).isAfter(LocalDateTime.now())){
+            waitABit(300);
+        }
     }
 
     public void enterAddSecondnameField(){
@@ -1049,6 +1058,52 @@ public class PacientLKPage extends PageObject {
         New2BB10c.waitUntilClickable().click();
         loadDan.waitUntilNotVisible();
         NominalDK.waitUntilVisible().isDisplayed();
+    }
+
+    public boolean isDisplayed(WebElementFacade element) {
+        try {
+            return element.isDisplayed();
+        } catch (WebDriverException e) {
+            return false;
+        }
+    }
+    @FindBys(@FindBy(xpath = "//p[@class='select-drop__title']"))
+    List<WebElementFacade> pacientVibor;
+
+    @FindBy(xpath = "//div[contains(@class,'no-program-member')]")
+    WebElementFacade youNotPL;//сообщение у пациента без ПЛ
+
+    @FindBy(xpath = "//div[@class='lk-status__rating']")
+    WebElementFacade statusBB;
+
+
+    public boolean checkVisibleStatus(String value){
+        ViborMedKart.waitUntilClickable().click();
+        LocalDateTime startTime = LocalDateTime.now();
+        for (WebElementFacade pacient : pacientVibor){
+            if(pacient.getText().equals(value)){
+                pacient.waitUntilClickable().click();
+                loadDan.waitUntilVisible();
+                while (isDisplayed(loadDan) && startTime.plusMinutes(3).isAfter(LocalDateTime.now())){
+                    waitABit(300);
+                }
+                if(isDisplayed(youNotPL)){
+                    System.out.println(youNotPL.getText());
+                    return youNotPL.getText().contains("Вы не являетесь участником программы \"ИНВИТРО Здоровый плюс\"");
+                }else if(isDisplayed(statusBB)){
+                    NominalDK.waitUntilVisible().isDisplayed();
+                    ImageDK.waitUntilVisible().isDisplayed();
+                    System.out.println(statusBB.getText());
+                    if (statusBB.getText().contains("ваш статус в бонусной программе")){
+                        return statusBB.getText().contains("ваш статус в бонусной программе") || statusBB.getText().contains("дисконтная программа") || isDisplayed(statusBB.findBy("./img[@class='lk-info-bar__icon']"));
+                    }else {
+                        return statusBB.getText().contains("Номинал карты") || statusBB.getText().contains("дисконтная программа") || isDisplayed(statusBB.findBy("./img[@class='discount_card_small']"));
+                    }
+                }
+            }
+        }
+        Assert.fail("Не найдено значение " + value);
+        return false;
     }
 
     public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5

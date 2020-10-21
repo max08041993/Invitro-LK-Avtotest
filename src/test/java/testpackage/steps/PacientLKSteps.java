@@ -123,7 +123,7 @@ public class PacientLKSteps {
 
     @When("^Ввести логин (.*) и пароль (.*) для входа$")
     public void enterLoginPassword (String login, String password){
-        page.sendLogandPass(login, password);
+        assertionSteps.softAssertIsTrue("Вход не удался",page.sendLogandPass(login, password));
     }
 
     @When("Ввести в поле логина email (.*)" )// для лояльности актуально
@@ -336,59 +336,10 @@ public class PacientLKSteps {
         page.enterAddNameField();
     }
 
-    @When("Проверка отображения статуса участия основного пациента" )
-    public void enterAddSecondnameField() {
-        page.enterAddSecondnameField();
+    @Then("^Проверка отображения статуса участия медкарты пациента (.*)$")
+    public void checkVisibleStatus(String value){
+        assertionSteps.softAssertIsTrue("Статус участия в ПЛ не отобразилась",page.checkVisibleStatus(value));
     }
-
-    @When("Проверка 1отображения статуса участия медкарты пациента Тестовый Бонус7" )
-    public void enterAddBirthdayField() {
-        page.enterAddBirthdayField();
-    }
-
-    @When("Проверка 2отображения статуса участия медкарты пациента Тестовый Бонус5" )
-    public void enterAddPhoneField() {
-        page.enterAddPhoneField();
-    }
-    @When("Проверка 3отображения статуса участия медкарты пациента Тестовый Бонус10" )
-    public void сlickNHematologicalStudies() {
-        page.clickNHematologicalStudies();
-    }
-
-    @When("Проверка 4отображения статуса участия медкарты пациента Тестовый Бонус10п" )
-    public void enterNewPacientEmailTField() {
-        page.enterNewPacientEmailTField();
-    }
-
-    @When("Проверка 5отображения статуса участия медкарты пациента Тестовый Бонус10с" )
-    public void сlickNewPacientSaveButton() {
-        page.clickNewPacientSaveButton();
-    }
-
-
-    @When("Проверка 1отображения статуса участия медкарты пациента Тестовый Дисконт5" )
-    public void enterLoginField() {
-        page.enterLoginField();
-    }
-
-    @When("Проверка 2отображения статуса участия медкарты пациента Тестовый Дисконт10" )
-    public void enterPasswordField() { page.enterPasswordField(); }
-
-    @When("Проверка 3отображения статуса участия медкарты пациента Тестовый Дисконт13" )
-    public void сlickNewOrderButton() {
-        page.clickNewOrderButton();
-    }
-
-    @When("Проверка 4отображения статуса участия медкарты пациента Тестовый Дисконт20" )
-    public void сlickAddFirstAnalysis() {
-        page.clickAddFirstAnalysis();
-    }
-
-    @When("Проверка 5отображения статуса участия медкарты пациента Тестовый Дисконт30" )
-    public void сlickAddSecondClinicalBloodTest() {
-        page.clickAddSecondClinicalBloodTest();
-    }
-
 
     //--------------------Проверка Настройки---------------
 
