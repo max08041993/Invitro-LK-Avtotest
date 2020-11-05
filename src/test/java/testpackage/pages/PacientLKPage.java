@@ -34,45 +34,6 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//a[contains(text(),'ПРОГРАММА «ИНВИТРО ЗДОРОВЫЙ ПЛЮС»')]")
     WebElementFacade ProgrammaInvitroZdorPlus;//Ссылка на ПРОГРАММА «ИНВИТРО ЗДОРОВЫЙ ПЛЮС»
 
-    @FindBy(xpath = "//div[contains(text(),'Вы не являетесь участником программы \"ИНВИТРО Здоровый плюс\"')]")
-    WebElementFacade NotPL;//сообщение у основного пациента по ПЛ
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус5')]")//Медкарта Тестовый Бонус5
-            WebElementFacade BB5;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][contains(text(),'Тестовый Бонус7')]")//Медкарта Тестовый Бонус5
-            WebElementFacade BB7;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Бонус10']")//Медкарта Тестовый Бонус10
-            WebElementFacade BB10;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Бонус10п']")//Медкарта Тестовый Бонус10п
-            WebElementFacade NewBB10p;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Бонус10с']")//Медкарта Тестовый Бонус10с
-            WebElementFacade New2BB10c;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт5']")//Медкарта Тестовый Дисконт5
-            WebElementFacade DK5;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт10']")//Медкарта Тестовый Дисконт10
-            WebElementFacade DK10;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт13']")//Медкарта Тестовый Дисконт13
-            WebElementFacade DK13;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт20']")//Медкарта Тестовый Дисконт20
-            WebElementFacade DK20;
-
-    @FindBy(xpath = "//p[@class='select-drop__title'][text()='Тестовый Дисконт30']")//Медкарта Тестовый Дисконт30
-            WebElementFacade DK30;
-
-    @FindBy(xpath = "//div[@class='lk-info-bar__title lk-info-bar__title--big']")//Информация о номинале ДК и ББ
-            WebElementFacade NominalDK;
-
-    @FindBy(xpath = "//img[@class='discount_card_small']")//Изображение ДК
-            WebElementFacade ImageDK;
-
     //Проверка добавления новой Медкарты
 
     @FindBy(xpath="//button[@class='btn-icon btn-icon--fill popupBtn add-medcard']")// Кнопка 'Добавить МедКарту пациента'
@@ -477,6 +438,21 @@ public class PacientLKPage extends PageObject {
     @FindBys({@FindBy(xpath = "//div[@class='header-nav']//a")})
     List<WebElementFacade> listFullNameDerictores;
 
+    @FindBys(@FindBy(xpath = "//p[@class='select-drop__title']"))
+    List<WebElementFacade> pacientVibor;
+
+    @FindBy(xpath = "//div[contains(@class,'no-program-member')]")
+    WebElementFacade youNotPL;//сообщение у пациента без ПЛ
+
+    @FindBy(xpath = "//div[@class='lk-status__rating']")
+    WebElementFacade statusBB;
+
+    @FindBy(xpath = "//div[@class='attention--header--block--desktop']//div[@class='close-block']/*")
+    WebElementFacade closeAttention;
+
+    @FindBy(xpath = "//div[@class='lk-status_inner_discount']")
+    WebElementFacade statusDk;
+
     public void openDirectoriesName(String name) {
         for (WebElementFacade medInfoRow : listFullNameDerictores) {
             if (medInfoRow.getText().replaceAll("[\r\n]", " ").equals(name)) {
@@ -523,8 +499,6 @@ public class PacientLKPage extends PageObject {
         TableHistory.waitUntilVisible().isDisplayed();
     }
 
-    @FindBy(xpath = "//div[@class='attention--header--block--desktop']//div[@class='close-block']/*")
-    WebElementFacade closeAttention;
 
     public void ClickYesMoskow(){
         if (messageComand.isVisible() && messageComand.isDisplayed()){
@@ -1019,47 +993,6 @@ public class PacientLKPage extends PageObject {
         }
     }
 
-    public void enterAddSecondnameField(){
-        NotPL.waitUntilVisible().isDisplayed();
-    }
-
-
-
-    public void enterAddPhoneField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус5
-        ViborMedKart.waitUntilClickable().click();
-        BB5.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-    }
-
-    public void enterAddBirthdayField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус7
-        ViborMedKart.waitUntilClickable().click();
-        BB7.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-    }
-
-    public void clickNHematologicalStudies(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10
-        ViborMedKart.waitUntilClickable().click();
-        BB10.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-    }
-
-    public void enterNewPacientEmailTField(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10п
-        ViborMedKart.waitUntilClickable().click();
-        NewBB10p.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-    }
-
-    public void clickNewPacientSaveButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Бонус10с
-        ViborMedKart.waitUntilClickable().click();
-        New2BB10c.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-    }
-
     public boolean isDisplayed(WebElementFacade element) {
         try {
             return element.isDisplayed();
@@ -1067,83 +1000,70 @@ public class PacientLKPage extends PageObject {
             return false;
         }
     }
-    @FindBys(@FindBy(xpath = "//p[@class='select-drop__title']"))
-    List<WebElementFacade> pacientVibor;
-
-    @FindBy(xpath = "//div[contains(@class,'no-program-member')]")
-    WebElementFacade youNotPL;//сообщение у пациента без ПЛ
-
-    @FindBy(xpath = "//div[@class='lk-status__rating']")
-    WebElementFacade statusBB;
 
 
-    public boolean checkVisibleStatus(String value){
+    public void scrollToElement(WebElementFacade element) {
+        if (elementInViewPort(element)) {
+            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView();", element);
+            scrollToElement(element, 0, -400);
+        }
+    }
+
+    public void scrollToElement(WebElementFacade element, int x, int y) {
+        if (elementInViewPort(element)) {
+            String code = "window.scroll(" + (element.getLocation().x + x) + ","
+                    + (element.getLocation().y + y) + ");";
+            ((JavascriptExecutor) getDriver()).executeScript(code, element, x, y);
+        }
+    }
+
+    private boolean elementInViewPort(WebElementFacade element) {
+        Dimension screenSize = getDriver().manage().window().getSize();
+        try {
+            Long y = (Long) ((JavascriptExecutor) getDriver()).executeScript(
+                    "var elem = arguments[0],                 " +
+                            "  box = elem.getBoundingClientRect();    " +
+                            "return box.top;                            "
+                    , element);
+            return y >= screenSize.getHeight() - 200 || y <= 200;
+        } catch (ClassCastException e) {
+            Double y = (Double) ((JavascriptExecutor) getDriver()).executeScript(
+                    "var elem = arguments[0],                 " +
+                            "  box = elem.getBoundingClientRect();    " +
+                            "return box.top;                            "
+                    , element);
+            return y >= screenSize.getHeight() - 200 || y <= 200;
+        }
+    }
+
+    public boolean sendPacient(String value){
         ViborMedKart.waitUntilClickable().click();
         LocalDateTime startTime = LocalDateTime.now();
-        for (WebElementFacade pacient : pacientVibor){
-            if(pacient.getText().equals(value)){
+        for (WebElementFacade pacient : pacientVibor) {
+            if (pacient.getText().equals(value)) {
+//                scrollToElement(pacient);
                 pacient.waitUntilClickable().click();
                 loadDan.waitUntilVisible();
-                while (isDisplayed(loadDan) && startTime.plusMinutes(3).isAfter(LocalDateTime.now())){
+                while (isDisplayed(loadDan) && startTime.plusMinutes(3).isAfter(LocalDateTime.now())) {
                     waitABit(300);
                 }
-                if(isDisplayed(youNotPL)){
-                    System.out.println(youNotPL.getText());
-                    return youNotPL.getText().contains("Вы не являетесь участником программы \"ИНВИТРО Здоровый плюс\"");
-                }else if(isDisplayed(statusBB)){
-                    NominalDK.waitUntilVisible().isDisplayed();
-                    ImageDK.waitUntilVisible().isDisplayed();
-                    System.out.println(statusBB.getText());
-                    if (statusBB.getText().contains("ваш статус в бонусной программе")){
-                        return statusBB.getText().contains("ваш статус в бонусной программе") || statusBB.getText().contains("дисконтная программа") || isDisplayed(statusBB.findBy("./img[@class='lk-info-bar__icon']"));
-                    }else {
-                        return statusBB.getText().contains("Номинал карты") || statusBB.getText().contains("дисконтная программа") || isDisplayed(statusBB.findBy("./img[@class='discount_card_small']"));
-                    }
-                }
+                return true;
             }
         }
-        Assert.fail("Не найдено значение " + value);
+        Assert.fail("Пациент " + value +  " не найден в списке");
         return false;
     }
 
-    public void enterLoginField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт5
-        ViborMedKart.waitUntilClickable().click();
-        DK5.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-        ImageDK.waitUntilVisible().isDisplayed();
+    public boolean checkNotPL(){
+        return youNotPL.getText().contains("Вы не являетесь участником программы \"ИНВИТРО Здоровый плюс\"");
     }
 
-    public void enterPasswordField(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт10
-        ViborMedKart.waitUntilClickable().click();
-        DK10.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-        ImageDK.waitUntilVisible().isDisplayed();
+    public boolean checkBBPl(){
+        return statusBB.getText().contains("ваш статус в бонусной программе");
     }
 
-    public void clickNewOrderButton(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт13
-        ViborMedKart.waitUntilClickable().click();
-        DK13.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NotPL.waitUntilVisible().isDisplayed();
-    }
-
-    public void clickAddFirstAnalysis(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт20
-        ViborMedKart.waitUntilClickable().click();
-        DK20.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-        ImageDK.waitUntilVisible().isDisplayed();
-    }
-
-    public void clickAddSecondClinicalBloodTest(){//Проверка отображения статуса участия медкарты пациента Тестовый Дисконт30
-        ViborMedKart.waitUntilClickable().click();
-        DK30.waitUntilClickable().click();
-        loadDan.waitUntilNotVisible();
-        NominalDK.waitUntilVisible().isDisplayed();
-        ImageDK.waitUntilVisible().isDisplayed();
-        loadDan.waitUntilNotVisible();
+    public boolean checkDkPl(){
+        return statusDk.getText().contains("Номинал карты") || statusDk.getText().contains("дисконтная программа") || isDisplayed(statusDk.findBy("./img[@class='discount_card_small']"));
     }
 
     public void checkOrderedAnalyzesInBasketBlock(){

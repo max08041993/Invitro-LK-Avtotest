@@ -319,7 +319,7 @@ public class PacientLKSteps {
     }
 
     @When("Проверка добавления новой Медкарты" )
-    public void сlickChooseMalePacient() { page.clickChooseMalePacient(); }
+    public void lickChooseMalePatient() { page.clickChooseMalePacient(); }
 
 //    @When("Проверка добавления результатов по ИНЗ в новой медкарте" )
 //    public void сlickChooseFemalePacient() {
@@ -336,9 +336,31 @@ public class PacientLKSteps {
         page.enterAddNameField();
     }
 
-    @Then("^Проверка отображения статуса участия медкарты пациента (.*)$")
-    public void checkVisibleStatus(String value){
-        assertionSteps.softAssertIsTrue("Статус участия в ПЛ не отобразилась",page.checkVisibleStatus(value));
+//    @Then("^Проверка отображения статуса участия медкарты пациента (.*)$")
+//    public void checkVisibleStatus(String value){
+//        assertionSteps.softAssertIsTrue("Статус участия в ПЛ не отобразилась",page.checkVisibleStatus(value));
+//    }
+
+    @When("^Выбираю пациента (.*)$")
+    public void sendPacient(String value){
+        assertionSteps.softAssertIsTrue("Пациент " + value +  " не найден в списке",page.sendPacient(value));
+    }
+
+    @When("^Проверяю что пациент не участвует в программе лояльности$")
+    public void checkNotPL(){
+        assertionSteps.softAssertIsTrue("Пациент является участником ПЛ",page.checkNotPL());
+    }
+
+    @When("^Проверяю что пациент является участником (Бонусной|Дисконтной) программы лояльности$")
+    public void checkBBPlOrDkPl(String var){
+        switch (var){
+            case "Бонусной":
+                assertionSteps.softAssertIsTrue("Пациент является участником ПЛ",page.checkBBPl());
+                break;
+            case "Дисконтной":
+                assertionSteps.softAssertIsTrue("Пациент является участником ПЛ",page.checkDkPl());
+                break;
+        }
     }
 
     //--------------------Проверка Настройки---------------
