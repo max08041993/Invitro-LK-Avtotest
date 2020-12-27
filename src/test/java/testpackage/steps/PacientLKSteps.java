@@ -117,7 +117,7 @@ public class PacientLKSteps {
     }
 
     @When("Выхожу из ЛК")
-            public void exitLk(){
+    public void exitLk(){
         page.exitLk();
     }
 

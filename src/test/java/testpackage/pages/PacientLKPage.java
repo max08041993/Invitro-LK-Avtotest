@@ -163,7 +163,7 @@ public class PacientLKPage extends PageObject {
 //    @FindBy(xpath="//span[@class='city__name city__btn city__name--label']")
 //    WebElementFacade moskow;
 
-    @FindBy (xpath = "//button[@class='header-nav__get-result popupBtn']")
+    @FindBy (xpath = "//div[@class='invitro_header-bottom_right']/button[@class='invitro_header-get_result popupBtn']")
     WebElementFacade Resultat;
 
     @FindBy (xpath = "//div[@id='popupResult']")// Поле ввода
