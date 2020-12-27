@@ -139,7 +139,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='lk-double-autorized lk-setting__box']")//Блок Защита с помощью мобильного телефона
             WebElementFacade BlockSecur;
 
-    @FindBy(xpath = "(//span[@class='form__pass-visible'])[5]")//Кнопка просмотра нового пароля
+    @FindBy(xpath = "(//span[@class='form__pass-visible'])[1]")//Кнопка просмотра нового пароля
             WebElementFacade GlazPassword;
 
     //История посещений
@@ -148,20 +148,20 @@ public class PacientLKPage extends PageObject {
             WebElementFacade TableHistory;
 
 
-    @FindBy(xpath = "//a[@class='btn btn--narrow btn--empty city__change-btn']")//Выбрать другой
-            WebElementFacade ChengeOtherCity;
+//    @FindBy(xpath = "//a[@class='btn btn--narrow btn--empty city__change-btn']")//Выбрать другой
+//            WebElementFacade ChengeOtherCity;
 
-    @FindBy (xpath = "//button[@data-id='cookie']")
-    WebElementFacade Prinyat;
+//    @FindBy (xpath = "//button[@data-id='cookie']")
+//    WebElementFacade Prinyat;
 
-    @FindBy (xpath = "//button[@class='btn btn--narrow city__confirm-btn']") //Да верно
-            WebElementFacade ChangeYesOk;
+//    @FindBy (xpath = "//button[@class='btn btn--narrow city__confirm-btn']") //Да верно
+//            WebElementFacade ChangeYesOk;
 
-    @FindBy (xpath = "//div[@class='change-city-wrapper__left']//a[@class='change-city-block__item bold'][contains(text(),'Москва')]") //надпись крупные города Москва
-            WebElementFacade BigCityMoscow;
+//    @FindBy (xpath = "//div[@class='change-city-wrapper__left']//a[@class='change-city-block__item bold'][contains(text(),'Москва')]") //надпись крупные города Москва
+//            WebElementFacade BigCityMoscow;
 
-    @FindBy(xpath="//span[@class='city__name city__btn city__name--label']")
-    WebElementFacade moskow;
+//    @FindBy(xpath="//span[@class='city__name city__btn city__name--label']")
+//    WebElementFacade moskow;
 
     @FindBy (xpath = "//button[@class='header-nav__get-result popupBtn']")
     WebElementFacade Resultat;
@@ -428,9 +428,9 @@ public class PacientLKPage extends PageObject {
 
     @FindBy(xpath = "//*[text()='Загрузка...']")
     WebElementFacade blockLoad;
-
-    @FindBy(xpath = "(//div[@class='attention--header--list hidden']//div[@class='close-block'])[2]")
-    WebElementFacade messageComand;
+//
+//    @FindBy(xpath = "(//div[@class='attention--header--list hidden']//div[@class='close-block'])[2]")
+//    WebElementFacade messageComand;
 
     @FindBys({@FindBy(xpath = "//div[@class='lk-setting__nav lk-setting-nav']/a")})
     List<WebElementFacade> listFullNamesBlock;
@@ -447,8 +447,8 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='lk-status__rating']")
     WebElementFacade statusBB;
 
-    @FindBy(xpath = "//div[@class='attention--header--block--desktop']//div[@class='close-block']/*")
-    WebElementFacade closeAttention;
+//    @FindBy(xpath = "//div[@class='attention--header--block--desktop']//div[@class='close-block']/*")
+//    WebElementFacade closeAttention;
 
     @FindBy(xpath = "//div[@class='lk-status_inner_discount']")
     WebElementFacade statusDk;
@@ -500,24 +500,24 @@ public class PacientLKPage extends PageObject {
     }
 
 
-    public void ClickYesMoskow(){
-        if (messageComand.isVisible() && messageComand.isDisplayed()){
-            messageComand.click();
-        }
-        if (moskow.getText().equals("Москва"))
-        {
-            ChangeYesOk.waitUntilClickable().click();
-        }
-        else{
-            ChengeOtherCity.waitUntilClickable().click();
-            BigCityMoscow.waitUntilClickable().click();
-            ChangeYesOk.waitUntilClickable().click();
-        }
-        Prinyat.waitUntilClickable().click();
-        if (closeAttention.isVisible()){
-            closeAttention.click();
-        }
-    }
+//    public void ClickYesMoskow(){
+//        if (messageComand.isVisible() && messageComand.isDisplayed()){
+//            messageComand.click();
+//        }
+//        if (moskow.getText().equals("Москва"))
+//        {
+//            ChangeYesOk.waitUntilClickable().click();
+//        }
+//        else{
+//            ChengeOtherCity.waitUntilClickable().click();
+//            BigCityMoscow.waitUntilClickable().click();
+//            ChangeYesOk.waitUntilClickable().click();
+//        }
+//        Prinyat.waitUntilClickable().click();
+//        if (closeAttention.isVisible()){
+//            closeAttention.click();
+//        }
+//    }
 
     public void clickButtonLogin(){
         ButtonLogin.waitUntilClickable().click();

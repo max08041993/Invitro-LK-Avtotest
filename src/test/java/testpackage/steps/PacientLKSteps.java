@@ -28,11 +28,11 @@ public class PacientLKSteps {
         page.setDefaultBaseUrl(url);
         page.open();
     }
-
-    @When("Проверяю что выбрана Москва и убраны все всплывающие окна")
-    public void ClickYesMoskow(){
-        page.ClickYesMoskow();
-    }
+//
+//    @When("Проверяю что выбрана Москва и убраны все всплывающие окна")
+//    public void ClickYesMoskow(){
+//        page.ClickYesMoskow();
+//    }
 
     @When("Нажать Получить результаты анализов")
     public void clickResultat() {
