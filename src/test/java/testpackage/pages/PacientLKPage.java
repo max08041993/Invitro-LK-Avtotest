@@ -139,7 +139,7 @@ public class PacientLKPage extends PageObject {
     @FindBy(xpath = "//div[@class='lk-double-autorized lk-setting__box']")//Блок Защита с помощью мобильного телефона
             WebElementFacade BlockSecur;
 
-    @FindBy(xpath = "(//span[@class='form__pass-visible'])[1]")//Кнопка просмотра нового пароля
+    @FindBy(xpath = "(//span[@class='form__pass-visible'])[5]")//Кнопка просмотра нового пароля
             WebElementFacade GlazPassword;
 
     //История посещений
